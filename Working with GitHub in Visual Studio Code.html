@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://code.visualstudio.com/docs/editor/github -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="cn5-gurGUvjtlzniBhOIPjfKHzuAplh_R9Ju9tuL0DM">
+
+  <!-- Twitter and Facebook OpenGraph Metadata-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@code">
+
+  <meta itemprop="applicationCategory" content="Text Editor">
+  <meta itemprop="datePublished" content="2016-04-14">
+  <meta itemprop="operatingSystem" content="Mac, Linux, Windows">
+
+  	<meta name="description" content="Working with GitHub in Visual Studio Code">
+	<meta name="keywords" content="">
+    <meta name="ms.prod" content="vs-code">
+    <meta name="ms.TOCTitle" content="Working with GitHub">
+    <meta name="ms.ContentId" content="bd1be8cf-b745-4737-be48-db381ec3acc6">
+    <meta name="ms.date" content="7/9/2020">
+    <meta name="ms.topic" content="conceptual">
+	<!-- Twitter and Facebook OpenGraph Metadata-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://code.visualstudio.com/docs/editor/github">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Working with GitHub in Visual Studio Code">
+    <meta property="og:description" content="Working with GitHub in Visual Studio Code">
+    
+    <meta property="og:image" content="https://code.visualstudio.com/opengraphimg/opengraph-docs.png">
+    
+
+
+  <link rel="shortcut icon" href="https://code.visualstudio.com/favicon.ico" sizes="128x128">
+  <link rel="apple-touch-icon" href="https://code.visualstudio.com/apple-touch-icon.png">
+
+  <title>Working with GitHub in Visual Studio Code</title>
+
+  <link rel="stylesheet" href="./Working with GitHub in Visual Studio Code_files/bootstrap.min.css">
+  <!-- EU Cookie Compliance CSS -->
+  <link rel="stylesheet" href="./Working with GitHub in Visual Studio Code_files/mscc-0.3.6.min.css">
+  <link rel="stylesheet" href="./Working with GitHub in Visual Studio Code_files/style.css">
+
+  <!--Google Analytics-->
+  <script type="text/javascript" async="" src="./Working with GitHub in Visual Studio Code_files/js"></script><script type="text/javascript" async="" src="./Working with GitHub in Visual Studio Code_files/linkid.js.download"></script><script async="" src="./Working with GitHub in Visual Studio Code_files/analytics.js.download"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  </script>
+  <!-- End Google Analytics -->
+  
+  <!-- Global site tag (gtag.js) - Google AdWords: 881159895 -->
+  <script async="" src="./Working with GitHub in Visual Studio Code_files/js(1)"></script>
+  <script>
+  function loadGA () {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-881159895');
+    window.gtag = gtag;
+  }
+  
+  if (document.cookie.indexOf('MSCC=') !== -1) {
+    loadGA();
+  } else {
+    if (mscc && mscc.on) {
+      mscc.on('consent', function () {
+        loadGA();
+      })
+    }
+  }
+  </script>
+  <script src="./Working with GitHub in Visual Studio Code_files/jsll-4.js.download" type="text/javascript"></script>
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for code.visualstudio.com" href="https://code.visualstudio.com/feed.xml">
+<script async="" src="./Working with GitHub in Visual Studio Code_files/t.js.download"></script></head>
+
+<body class="win">
+  <!-- EU Cookie Compliance JS -->
+  <script src="./Working with GitHub in Visual Studio Code_files/mscc-0.3.6.min.js.download"></script>
+
+  <div id="mscc-cookie-container">
+    <div id="msccBanner" dir="ltr" data-site-name="uhf-vscode" data-mscc-version="0.3.4" data-nver="aspnet-2.0.5" data-sver="0.1.2" class="cc-banner active" role="alert">
+      <div class="cc-container">
+        <svg class="cc-icon cc-v-center" x="0px" y="0px" viewBox="0 0 44 44" height="30px" fill="none" stroke="currentColor">
+          <circle cx="22" cy="22" r="20" stroke-width="2"></circle>
+          <line x1="22" x2="22" y1="18" y2="33" stroke-width="3"></line>
+          <line x1="22" x2="22" y1="12" y2="15" stroke-width="3"></line>
+          </svg>
+            <span class="cc-v-center cc-text">This site uses cookies for analytics, personalized content and ads. By continuing to browse this site, you agree to this use.</span>
+            <a href="https://go.microsoft.com/fwlink/?linkid=845480" aria-label="Learn more about Microsoft’s Cookie Policy" id="msccLearnMore" data-mscc-ic="false" class="cc-link cc-v-center cc-float-right">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div id="main" itemscope="" itemtype="http://schema.org/SoftwareApplication" style="transform: translateY(66px);">
+          <a role="button" id="skip-to-content" class="link-button" href="https://code.visualstudio.com/docs/editor/github#main-content">Skip to content<i>&nbsp;</i><span class="glyphicon glyphicon-menu-down"></span></a>
+          <div class="navbar-fixed-container">
+              <div class="navbar navbar-inverse navbar-fixed-top ">
+                  <nav role="navigation" aria-label="Top Level">
+                      <div class="container">
+                          <div class="nav navbar-header">
+                              <a class="navbar-brand" href="https://code.visualstudio.com/"><span itemprop="name">Visual Studio Code</span></a>
+                              <button type="button" class="navbar-toggle" role="navigation" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle Navigation Menu">
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                                  <span class="icon-bar"></span>
+                              </button>
+                          </div>
+                          <div class="navbar-collapse collapse" role="navigation">
+                              <ul class="nav navbar-nav navbar-left">
+                                  <li class="active"><a id="nav-docs" href="https://code.visualstudio.com/docs">Docs</a></li>
+                                  <li><a id="nav-updates" href="https://code.visualstudio.com/updates">Updates</a></li>
+                                  <li><a id="nav-blogs" href="https://code.visualstudio.com/blogs">Blog</a></li>
+                                  <li><a id="nav-extend" href="https://code.visualstudio.com/api">API</a></li>
+                                  <li><a href="https://marketplace.visualstudio.com/VSCode" target="_blank" id="nav-extensions">Extensions</a></li>
+                                  <li><a id="nav-faqs" href="https://code.visualstudio.com/docs/supporting/faq">FAQ</a></li>
+                                  <li class="search visible-xs"><a href="https://code.visualstudio.com/Search">Search</a></li>
+          	                    <li class="visible-xs"><a href="https://code.visualstudio.com/Download">Download</a></li>
+                              </ul>
+          
+                              <ul class="nav navbar-nav navbar-right">
+                                  <!-- Floating search icon -->
+                                  <li>
+                                      <a href="https://code.visualstudio.com/Search" title="Search" class="btn search-btn" id="nav-search">
+                                          <img class="search-icon" src="./Working with GitHub in Visual Studio Code_files/search.svg" width="16px" height="16px" alt="Search">
+                                          <img class="search-icon-inverted" src="./Working with GitHub in Visual Studio Code_files/search_dark.svg" width="16px" height="16px" alt="Search">
+                                      </a>
+                                  </li>
+                                  <!-- Actual search icon -->
+                                  <li class="search">
+                                      <form class="nav-search search-form" aria-label="Search"> 
+                                          <div class="input-group">
+                                              <input type="text" name="q" class="search-box form-control" placeholder="Search Docs" aria-label="Search text">
+                                              <span class="input-group-btn">
+                                                  <button tabindex="0" class="btn" type="submit" aria-label="Search">
+                                                          <img class="search-icon" src="./Working with GitHub in Visual Studio Code_files/search.svg" width="16px" height="16px" alt="Search">
+                                                          <img class="search-icon-inverted" src="./Working with GitHub in Visual Studio Code_files/search_dark.svg" width="16px" height="16px" alt="Search">
+                                                  </button>
+                                              </span>
+                                          </div>
+                                      </form>                        </li>
+                                  <!-- this was hiden in the home and download page, keeping it for now -->
+                                  <li><a itemprop="downloadUrl" class="link-button" href="https://code.visualstudio.com/Download" id="nav-download">
+                                      <img class="download-icon" src="./Working with GitHub in Visual Studio Code_files/download.svg" width="16px" height="16px" alt="Download VS Code">
+                                      <img class="download-icon-inverted" src="./Working with GitHub in Visual Studio Code_files/download-black.svg" width="16px" height="16px" alt="Download VS Code">
+                                      <span class="hidden-sm">Download</span>
+                                  </a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+          </div>          <div class="updates-banner  ">
+              <div class="container">
+                  <p class="message"><a href="https://code.visualstudio.com/updates" id="banner-link-updates">Version <span itemprop="softwareVersion">1.47</span></a> is now available! Read about the new features and fixes from June.</p>
+              </div>
+              <div tabindex="0" role="button" title="Dismiss this update" class="dismiss-btn" id="banner-dismiss-btn"><span class="sr-only">Dismiss this update</span><span aria-hidden="true" class="glyph-icon"></span></div>
+          </div>      <div role="main" id="main-content">
+        <script>
+    function closeReportIssue() {
+        var element = document.getElementById('surveypopup');
+        element.parentElement.removeChild(element);
+    }
+
+    function reportIssue(tutorial, page) {
+        var div = document.createElement('div');
+        div.innerHTML = '<div id="surveypopup" class="overlay visible"><div class="surveypopup"><div id="surveytitle">Tell us more<a href="javascript:void(0)" onclick="closeReportIssue()">X</a></div><div id="surveydiv"><iframe frameBorder="0" scrolling="0" src="https://www.research.net/r/PWZWZ52?tutorial='+tutorial+'&step='+page+'"></iframe></div></div></div>';
+        document.body.appendChild(div.children[0]);
+    }
+</script>
+
+<div class="container body-content docs">
+    <div class="row">
+        <div class="col-md-2 docs-navbar-container">
+            <nav id="docs-navbar" aria-label="Topics" class="docs-nav visible-md visible-lg">
+            	<ul class="nav" id="main-nav">
+            		<li>
+            			<a class="docs-home" href="https://code.visualstudio.com/docs">Overview</a>
+            		</li>
+            		
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Setup drop down" href="https://code.visualstudio.com/docs/editor/github#setup-articles" data-parent="#main-nav" data-toggle="collapse">Setup</a>
+            					<ul id="setup-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/setup-overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/linux">Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/mac">macOS</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/windows">Windows</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/network">Network</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/setup/additional-components">Additional Components</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Get Started drop down" href="https://code.visualstudio.com/docs/editor/github#getstarted-articles" data-parent="#main-nav" data-toggle="collapse">Get Started</a>
+            					<ul id="getstarted-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/introvideos">Intro Videos</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/tips-and-tricks">Tips and Tricks</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/userinterface">User Interface</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/themes">Themes</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/keybindings">Key Bindings</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/locales">Display Language</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/getstarted/telemetry">Telemetry</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel active expanded">
+            					<a class="area" aria-label="User Guide drop down" href="https://code.visualstudio.com/docs/editor/github#editor-articles" data-parent="#main-nav" data-toggle="collapse">User Guide</a>
+            					<ul id="editor-articles" class="collapse in">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/codebasics">Basic Editing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/extension-gallery">Extension Marketplace</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/intellisense">IntelliSense</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/editingevolved">Code Navigation</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/refactoring">Refactoring</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/debugging">Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/versioncontrol">Version Control</a>
+            						</li>
+            					
+            						<li class="active">
+            							<a href="https://code.visualstudio.com/docs/editor/github" aria-label="Current Page: Working with GitHub">Working with GitHub</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/integrated-terminal">Integrated Terminal</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/tasks">Tasks</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/settings-sync">Settings Sync</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">Snippets</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/emmet">Emmet</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/command-line">Command Line</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/multi-root-workspaces">Multi-root Workspaces</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/editor/accessibility">Accessibility</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Languages drop down" href="https://code.visualstudio.com/docs/editor/github#languages-articles" data-parent="#main-nav" data-toggle="collapse">Languages</a>
+            					<ul id="languages-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/javascript">JavaScript</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/json">JSON</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/html">HTML</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/css">CSS, SCSS and Less</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/typescript">TypeScript</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/markdown">Markdown</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/powershell">PowerShell</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/cpp">C++</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/java">Java</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/php">PHP</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/python">Python</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/go">Go</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/tsql">T-SQL</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/csharp">C#</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/languages/dotnet">.NET Core</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Node.js / JavaScript drop down" href="https://code.visualstudio.com/docs/editor/github#nodejs-articles" data-parent="#main-nav" data-toggle="collapse">Node.js / JavaScript</a>
+            					<ul id="nodejs-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/working-with-javascript">Working with JavaScript</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-tutorial">Node.js Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging">Node.js Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/nodejs-deployment">Node.js Deployment</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/reactjs-tutorial">React Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/angular-tutorial">Angular Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/vuejs-tutorial">Vue Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/emberjs-tutorial">Ember Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/debugging-recipes">Debugging Recipes</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/nodejs/extensions">Extensions</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="TypeScript drop down" href="https://code.visualstudio.com/docs/editor/github#typescript-articles" data-parent="#main-nav" data-toggle="collapse">TypeScript</a>
+            					<ul id="typescript-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/typescript/typescript-tutorial">Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/typescript/typescript-compiling">Compiling</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/typescript/typescript-debugging">Debugging</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Python drop down" href="https://code.visualstudio.com/docs/editor/github#python-articles" data-parent="#main-nav" data-toggle="collapse">Python</a>
+            					<ul id="python-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/python-tutorial">Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/editing">Editing Code</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/linting">Linting</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/debugging">Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/environments">Environments</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/testing">Testing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/jupyter-support">Jupyter Notebook Support</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/jupyter-support-py">Python Interactive</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/data-science-tutorial">Data Science Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/tutorial-django">Django Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/tutorial-flask">Flask Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/tutorial-create-containers">Create containers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/python-on-azure">Python on Azure</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/python/settings-reference">Settings Reference</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Java drop down" href="https://code.visualstudio.com/docs/editor/github#java-articles" data-parent="#main-nav" data-toggle="collapse">Java</a>
+            					<ul id="java-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-tutorial">Getting Started</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-editing">Navigate and Edit</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-refactoring">Refactoring</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-linting">Linting</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-project">Project Management</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-build">Build Tools</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-debugging">Run and Debug</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-testing">Testing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-spring-boot">Spring Boot</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-tomcat-jetty">Application Servers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-on-azure">Java on Azure</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/extensions">Extensions</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/java/java-faq">FAQ</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="C++ drop down" href="https://code.visualstudio.com/docs/editor/github#cpp-articles" data-parent="#main-nav" data-toggle="collapse">C++</a>
+            					<ul id="cpp-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-linux">GCC on Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-mingw">GCC on Windows</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-wsl">GCC on Windows Subsystem for Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-clang-mac">Clang on macOS</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/config-msvc">Microsoft C++ on Windows</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/cmake-linux">CMake Tools on Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/cpp-debug">Debugging</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/cpp-ide">Editing</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/customize-default-settings-cpp">Settings</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/configure-intellisense-crosscompilation">Configure IntelliSense for cross-compiling</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/cpp/faq-cpp">FAQ</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Containers drop down" href="https://code.visualstudio.com/docs/editor/github#containers-articles" data-parent="#main-nav" data-toggle="collapse">Containers</a>
+            					<ul id="containers-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-node">Node.js</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-python">Python</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-aspnet-core">ASP.NET Core</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/debug-common">Debug</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/docker-compose">Docker Compose</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/quickstart-container-registries">Registries</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/app-service">Deploy to Azure</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/choosing-dev-environment">Choose a dev environment</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/reference">Customize</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/containers/local-process-kubernetes">Develop with Kubernetes</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Azure drop down" href="https://code.visualstudio.com/docs/editor/github#azure-articles" data-parent="#main-nav" data-toggle="collapse">Azure</a>
+            					<ul id="azure-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/extensions">Extensions</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/deployment">Deployment</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/remote-debugging">Remote Debugging for Node.js</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/docker">Docker</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/mongodb">MongoDB</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/kubernetes">Kubernetes</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/azure/tryappservice">Try Azure App Service</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            				<li class="panel collapsed">
+            					<a class="area" aria-label="Remote drop down" href="https://code.visualstudio.com/docs/editor/github#remote-articles" data-parent="#main-nav" data-toggle="collapse">Remote</a>
+            					<ul id="remote-articles" class="collapse ">
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/remote-overview">Overview</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/ssh">SSH</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/containers">Containers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/wsl">Windows Subsystem for Linux</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/codespaces">Visual Studio Codespaces</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/ssh-tutorial">SSH Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/containers-tutorial">Containers Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/wsl-tutorial">WSL Tutorial</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/attach-container">Attach to Container</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/create-dev-container">Create a Dev Container</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/containers-advanced">Advanced Containers</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/devcontainerjson-reference">devcontainer.json</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/troubleshooting">Tips and Tricks</a>
+            						</li>
+            					
+            						<li>
+            							<a href="https://code.visualstudio.com/docs/remote/faq">FAQ</a>
+            						</li>
+            					
+            					</ul>
+            				</li>
+            			
+            		
+            			
+            		
+            	</ul>
+            </nav>
+            <nav id="small-nav" aria-label="Topics" class="docs-nav hidden-md hidden-lg">
+            	<h4>Topics</h4>
+            	<select id="small-nav-dropdown">
+            		<option value="/docs">Overview</option>
+            		
+            			
+            		
+            			
+            				<optgroup label="Setup">
+            				
+            					<option value="/docs/setup/setup-overview">Overview</option>
+            				
+            					<option value="/docs/setup/linux">Linux</option>
+            				
+            					<option value="/docs/setup/mac">macOS</option>
+            				
+            					<option value="/docs/setup/windows">Windows</option>
+            				
+            					<option value="/docs/setup/network">Network</option>
+            				
+            					<option value="/docs/setup/additional-components">Additional Components</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Get Started">
+            				
+            					<option value="/docs/getstarted/introvideos">Intro Videos</option>
+            				
+            					<option value="/docs/getstarted/tips-and-tricks">Tips and Tricks</option>
+            				
+            					<option value="/docs/getstarted/userinterface">User Interface</option>
+            				
+            					<option value="/docs/getstarted/themes">Themes</option>
+            				
+            					<option value="/docs/getstarted/settings">Settings</option>
+            				
+            					<option value="/docs/getstarted/keybindings">Key Bindings</option>
+            				
+            					<option value="/docs/getstarted/locales">Display Language</option>
+            				
+            					<option value="/docs/getstarted/telemetry">Telemetry</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="User Guide">
+            				
+            					<option value="/docs/editor/codebasics">Basic Editing</option>
+            				
+            					<option value="/docs/editor/extension-gallery">Extension Marketplace</option>
+            				
+            					<option value="/docs/editor/intellisense">IntelliSense</option>
+            				
+            					<option value="/docs/editor/editingevolved">Code Navigation</option>
+            				
+            					<option value="/docs/editor/refactoring">Refactoring</option>
+            				
+            					<option value="/docs/editor/debugging">Debugging</option>
+            				
+            					<option value="/docs/editor/versioncontrol">Version Control</option>
+            				
+            					<option value="/docs/editor/github" selected="">Working with GitHub</option>
+            				
+            					<option value="/docs/editor/integrated-terminal">Integrated Terminal</option>
+            				
+            					<option value="/docs/editor/tasks">Tasks</option>
+            				
+            					<option value="/docs/editor/settings-sync">Settings Sync</option>
+            				
+            					<option value="/docs/editor/userdefinedsnippets">Snippets</option>
+            				
+            					<option value="/docs/editor/emmet">Emmet</option>
+            				
+            					<option value="/docs/editor/command-line">Command Line</option>
+            				
+            					<option value="/docs/editor/multi-root-workspaces">Multi-root Workspaces</option>
+            				
+            					<option value="/docs/editor/accessibility">Accessibility</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Languages">
+            				
+            					<option value="/docs/languages/overview">Overview</option>
+            				
+            					<option value="/docs/languages/javascript">JavaScript</option>
+            				
+            					<option value="/docs/languages/json">JSON</option>
+            				
+            					<option value="/docs/languages/html">HTML</option>
+            				
+            					<option value="/docs/languages/css">CSS, SCSS and Less</option>
+            				
+            					<option value="/docs/languages/typescript">TypeScript</option>
+            				
+            					<option value="/docs/languages/markdown">Markdown</option>
+            				
+            					<option value="/docs/languages/powershell">PowerShell</option>
+            				
+            					<option value="/docs/languages/cpp">C++</option>
+            				
+            					<option value="/docs/languages/java">Java</option>
+            				
+            					<option value="/docs/languages/php">PHP</option>
+            				
+            					<option value="/docs/languages/python">Python</option>
+            				
+            					<option value="/docs/languages/go">Go</option>
+            				
+            					<option value="/docs/languages/tsql">T-SQL</option>
+            				
+            					<option value="/docs/languages/csharp">C#</option>
+            				
+            					<option value="/docs/languages/dotnet">.NET Core</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Node.js / JavaScript">
+            				
+            					<option value="/docs/nodejs/working-with-javascript">Working with JavaScript</option>
+            				
+            					<option value="/docs/nodejs/nodejs-tutorial">Node.js Tutorial</option>
+            				
+            					<option value="/docs/nodejs/nodejs-debugging">Node.js Debugging</option>
+            				
+            					<option value="/docs/nodejs/nodejs-deployment">Node.js Deployment</option>
+            				
+            					<option value="/docs/nodejs/reactjs-tutorial">React Tutorial</option>
+            				
+            					<option value="/docs/nodejs/angular-tutorial">Angular Tutorial</option>
+            				
+            					<option value="/docs/nodejs/vuejs-tutorial">Vue Tutorial</option>
+            				
+            					<option value="/docs/nodejs/emberjs-tutorial">Ember Tutorial</option>
+            				
+            					<option value="/docs/nodejs/debugging-recipes">Debugging Recipes</option>
+            				
+            					<option value="/docs/nodejs/extensions">Extensions</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="TypeScript">
+            				
+            					<option value="/docs/typescript/typescript-tutorial">Tutorial</option>
+            				
+            					<option value="/docs/typescript/typescript-compiling">Compiling</option>
+            				
+            					<option value="/docs/typescript/typescript-debugging">Debugging</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Python">
+            				
+            					<option value="/docs/python/python-tutorial">Tutorial</option>
+            				
+            					<option value="/docs/python/editing">Editing Code</option>
+            				
+            					<option value="/docs/python/linting">Linting</option>
+            				
+            					<option value="/docs/python/debugging">Debugging</option>
+            				
+            					<option value="/docs/python/environments">Environments</option>
+            				
+            					<option value="/docs/python/testing">Testing</option>
+            				
+            					<option value="/docs/python/jupyter-support">Jupyter Notebook Support</option>
+            				
+            					<option value="/docs/python/jupyter-support-py">Python Interactive</option>
+            				
+            					<option value="/docs/python/data-science-tutorial">Data Science Tutorial</option>
+            				
+            					<option value="/docs/python/tutorial-django">Django Tutorial</option>
+            				
+            					<option value="/docs/python/tutorial-flask">Flask Tutorial</option>
+            				
+            					<option value="/docs/python/tutorial-create-containers">Create containers</option>
+            				
+            					<option value="/docs/python/python-on-azure">Python on Azure</option>
+            				
+            					<option value="/docs/python/settings-reference">Settings Reference</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Java">
+            				
+            					<option value="/docs/java/java-tutorial">Getting Started</option>
+            				
+            					<option value="/docs/java/java-editing">Navigate and Edit</option>
+            				
+            					<option value="/docs/java/java-refactoring">Refactoring</option>
+            				
+            					<option value="/docs/java/java-linting">Linting</option>
+            				
+            					<option value="/docs/java/java-project">Project Management</option>
+            				
+            					<option value="/docs/java/java-build">Build Tools</option>
+            				
+            					<option value="/docs/java/java-debugging">Run and Debug</option>
+            				
+            					<option value="/docs/java/java-testing">Testing</option>
+            				
+            					<option value="/docs/java/java-spring-boot">Spring Boot</option>
+            				
+            					<option value="/docs/java/java-tomcat-jetty">Application Servers</option>
+            				
+            					<option value="/docs/java/java-on-azure">Java on Azure</option>
+            				
+            					<option value="/docs/java/extensions">Extensions</option>
+            				
+            					<option value="/docs/java/java-faq">FAQ</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="C++">
+            				
+            					<option value="/docs/cpp/config-linux">GCC on Linux</option>
+            				
+            					<option value="/docs/cpp/config-mingw">GCC on Windows</option>
+            				
+            					<option value="/docs/cpp/config-wsl">GCC on Windows Subsystem for Linux</option>
+            				
+            					<option value="/docs/cpp/config-clang-mac">Clang on macOS</option>
+            				
+            					<option value="/docs/cpp/config-msvc">Microsoft C++ on Windows</option>
+            				
+            					<option value="/docs/cpp/cmake-linux">CMake Tools on Linux</option>
+            				
+            					<option value="/docs/cpp/cpp-debug">Debugging</option>
+            				
+            					<option value="/docs/cpp/cpp-ide">Editing</option>
+            				
+            					<option value="/docs/cpp/customize-default-settings-cpp">Settings</option>
+            				
+            					<option value="/docs/cpp/configure-intellisense-crosscompilation">Configure IntelliSense for cross-compiling</option>
+            				
+            					<option value="/docs/cpp/faq-cpp">FAQ</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Containers">
+            				
+            					<option value="/docs/containers/overview">Overview</option>
+            				
+            					<option value="/docs/containers/quickstart-node">Node.js</option>
+            				
+            					<option value="/docs/containers/quickstart-python">Python</option>
+            				
+            					<option value="/docs/containers/quickstart-aspnet-core">ASP.NET Core</option>
+            				
+            					<option value="/docs/containers/debug-common">Debug</option>
+            				
+            					<option value="/docs/containers/docker-compose">Docker Compose</option>
+            				
+            					<option value="/docs/containers/quickstart-container-registries">Registries</option>
+            				
+            					<option value="/docs/containers/app-service">Deploy to Azure</option>
+            				
+            					<option value="/docs/containers/choosing-dev-environment">Choose a dev environment</option>
+            				
+            					<option value="/docs/containers/reference">Customize</option>
+            				
+            					<option value="/docs/containers/local-process-kubernetes">Develop with Kubernetes</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Azure">
+            				
+            					<option value="/docs/azure/extensions">Extensions</option>
+            				
+            					<option value="/docs/azure/deployment">Deployment</option>
+            				
+            					<option value="/docs/azure/remote-debugging">Remote Debugging for Node.js</option>
+            				
+            					<option value="/docs/azure/docker">Docker</option>
+            				
+            					<option value="/docs/azure/mongodb">MongoDB</option>
+            				
+            					<option value="/docs/azure/kubernetes">Kubernetes</option>
+            				
+            					<option value="/docs/azure/tryappservice">Try Azure App Service</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            				<optgroup label="Remote">
+            				
+            					<option value="/docs/remote/remote-overview">Overview</option>
+            				
+            					<option value="/docs/remote/ssh">SSH</option>
+            				
+            					<option value="/docs/remote/containers">Containers</option>
+            				
+            					<option value="/docs/remote/wsl">Windows Subsystem for Linux</option>
+            				
+            					<option value="/docs/remote/codespaces">Visual Studio Codespaces</option>
+            				
+            					<option value="/docs/remote/ssh-tutorial">SSH Tutorial</option>
+            				
+            					<option value="/docs/remote/containers-tutorial">Containers Tutorial</option>
+            				
+            					<option value="/docs/remote/wsl-tutorial">WSL Tutorial</option>
+            				
+            					<option value="/docs/remote/attach-container">Attach to Container</option>
+            				
+            					<option value="/docs/remote/create-dev-container">Create a Dev Container</option>
+            				
+            					<option value="/docs/remote/containers-advanced">Advanced Containers</option>
+            				
+            					<option value="/docs/remote/devcontainerjson-reference">devcontainer.json</option>
+            				
+            					<option value="/docs/remote/troubleshooting">Tips and Tricks</option>
+            				
+            					<option value="/docs/remote/faq">FAQ</option>
+            				
+            				</optgroup>
+            			
+            		
+            			
+            		
+            	</select>
+            </nav>		</div>
+		<div class="col-sm-9 col-md-8 body">
+			<div class="edit-github pull-right">
+				<a href="https://github.com/Microsoft/vscode-docs/blob/master/docs/editor/github.md" tabindex="-1">
+					<button type="button" class="btn btn-default" title="Edit this document" aria-label="Edit current document on GitHub"><span class="glyphicon glyphicon-pencil"></span><i>&nbsp;</i><span class="hidden-xs">Edit</span></button>
+				</a>
+			</div>
+			<h1>Working with GitHub in VS Code</h1>
+<p>Using <a href="https://github.com/" class="external-link" target="_blank">GitHub</a> with Visual Studio Code lets you share your source code and collaborate with others. GitHub integration is provided through the <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github" class="external-link" target="_blank">GitHub Pull Requests and Issues</a> extension. To get started with the GitHub in VS Code, you'll need to <a href="https://help.github.com/github/getting-started-with-github/signing-up-for-a-new-github-account" class="external-link" target="_blank">create an account</a> and install the <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github" class="external-link" target="_blank">GitHub Pull Requests and Issues</a> extension. In this topic, we'll demonstrate how you can use some of your favorite parts of GitHub without leaving VS Code.</p>
+<p>If you're new to source control and want to start there, you can learn about VS Code's <a href="https://code.visualstudio.com/docs/editor/versioncontrol">source control integration</a>.</p>
+<h2 id="_getting-started-with-github-pull-requests-and-issues" data-needslink="_getting-started-with-github-pull-requests-and-issues">Getting started with GitHub Pull Requests and Issues<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_getting-started-with-github-pull-requests-and-issues">#</a></h2>
+<p>Once you've installed the <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github" class="external-link" target="_blank">GitHub Pull Requests and Issues</a> extension, you'll need to sign in. Follow the prompts to authenticate with GitHub and return to VS Code.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/extension-signin.png" alt="Extension Sign In"></p>
+<h2 id="_setting-up-a-repository" data-needslink="_setting-up-a-repository">Setting up a repository<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_setting-up-a-repository">#</a></h2>
+<h3 id="_cloning-a-repository" data-needslink="_cloning-a-repository">Cloning a repository<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_cloning-a-repository">#</a></h3>
+<p>You can search for and clone a repository from GitHub using the <strong>Git: Clone</strong> command in the Command Palette (<span class="dynamic-keybinding keybinding win" data-osx="⇧⌘P" data-win="Ctrl+Shift+P" data-linux="Ctrl+Shift+P" title="macOS: ⇧⌘P, Linux: Ctrl+Shift+P">Ctrl+Shift+P</span>) or by using the <strong>Clone Repository</strong> button in the Source Control view (available when you have no folder open).</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/clone-from-github.gif" alt="Clone From GitHub"></p>
+<h3 id="_authenticating-with-an-existing-repository" data-needslink="_authenticating-with-an-existing-repository">Authenticating with an existing repository<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_authenticating-with-an-existing-repository">#</a></h3>
+<p>Enabling authentication through GitHub happens when you run any Git action in VS Code that requires GitHub authentication, such as pushing to a repository that you're a member of or cloning a private repository. You don't need to have any special extensions installed for authentication; it is built into VS Code so that you can efficiently manage your repository.</p>
+<p>When you do something that requires GitHub authentication, you'll see a prompt to sign in:</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/auth-prompt.png" alt="Authentication Prompt"></p>
+<p>Follow the steps to sign into GitHub and return to VS Code.</p>
+<h2 id="_editor-integration" data-needslink="_editor-integration">Editor integration<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_editor-integration">#</a></h2>
+<h3 id="_hovers" data-needslink="_hovers">Hovers<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_hovers">#</a></h3>
+<p>When you have a repository open and a user is @-mentioned, you can hover over that username and see a GitHub-style hover.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/user-hover.png" alt="User Hover"></p>
+<p>There is a similar hover for #-mentioned issue numbers, full GitHub issue URLs, and repository specified issues.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/issue-hover.png" alt="Issue Hover"></p>
+<h3 id="_suggestions" data-needslink="_suggestions">Suggestions<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_suggestions">#</a></h3>
+<p>User suggestions are triggered by the "@" character and issue suggestions are triggered by the "#" character. Suggestions are available in the editor and in the <strong>Source Control</strong> view's input box.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/user-issue-suggest.gif" alt="User and Issue suggestions"></p>
+<p>The issues that appear in the suggestion can be configured with the <strong>GitHub Issues: Queries</strong> (<code>githubIssues.queries</code>) <a href="https://code.visualstudio.com/docs/getstarted/settings">setting</a>. The queries use the <a href="https://help.github.com/articles/understanding-the-search-syntax" class="external-link" target="_blank">GitHub search syntax</a>.</p>
+<p>You can also configure which files show these suggestions using the settings <strong>GitHub Issues: Ignore Completion Trigger</strong> (<code>githubIssues.ignoreCompletionTrigger</code>) and <strong>GitHub Issues: Ignore User Completion Trigger</strong> (<code>githubIssues.ignoreUserCompletionTrigger</code>). These settings take an array of <a href="https://code.visualstudio.com/docs/languages/identifiers">language identifiers</a> to specify the file types.</p>
+<pre class="shiki" style="background-color: #FFFFFF"><code><span style="color: #008000">// Languages that the '#' character should not be used to trigger issue completion suggestions.</span>
+<span style="color: #A31515">"githubIssues.ignoreCompletionTrigger"</span><span style="color: #000000">: [</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"python"</span>
+<span style="color: #000000">]</span></code></pre>
+<h2 id="_pull-requests" data-needslink="_pull-requests">Pull requests<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_pull-requests">#</a></h2>
+<p>From the <strong>Pull Requests</strong> view you can view, manage, and create pull requests.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/pull-request-view.png" alt="Pull Request View"></p>
+<p>The queries used to display pull requests can be configured with the <strong>GitHub Pull Requests: Queries</strong> (<code>githubPullRequests.queries</code>) setting and use the <a href="https://help.github.com/articles/understanding-the-search-syntax" class="external-link" target="_blank">GitHub search syntax</a>.</p>
+<pre class="shiki" style="background-color: #FFFFFF"><code><span style="color: #A31515">"githubPullRequests.queries"</span><span style="color: #000000">: [</span>
+<span style="color: #000000">    {</span>
+<span style="color: #000000">        </span><span style="color: #0451A5">"label"</span><span style="color: #000000">: </span><span style="color: #A31515">"Assigned To Me"</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #0451A5">"query"</span><span style="color: #000000">: </span><span style="color: #A31515">"is:open assignee:${user}"</span>
+<span style="color: #000000">    },</span></code></pre>
+<h3 id="_creating-pull-requests" data-needslink="_creating-pull-requests">Creating Pull Requests<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_creating-pull-requests">#</a></h3>
+<p>You can use the <strong>GitHub Pull Requests: Create Pull Request</strong> command or use the <strong>+</strong> button in the <strong>Pull Requests</strong> view to create a pull request. If you have not already pushed your branch to a remote, the extension will do this for you. You can use the last commit message, the branch name, or write a custom title for the pull request. If your repository has a pull request template, this will automatically be used for the description.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/pull-request-create.gif" alt="Creating a Pull Request"></p>
+<h3 id="_reviewing" data-needslink="_reviewing">Reviewing<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_reviewing">#</a></h3>
+<p>Pull requests can be reviewed from the <strong>Pull Requests</strong> view. You can assign reviewers and labels, add comments, approve, close, and merge all from the pull request description.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/review-pull-request.gif" alt="Review Pull Request"></p>
+<p>From the description page, you can also easily checkout the pull request locally using the <strong>Checkout</strong> button. This will add a new <strong>Changes in Pull Request</strong> view from which you can view diffs of the current changes as well as all commits and the changes within these commits. Files that have been commented on are decorated with a diamond icon. To view the file on disk, you can use the <strong>Open File</strong> inline action.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/changes-view.png" alt="Changes in Pull Request"></p>
+<p>The diff editors from this view use the local file, so file navigation, IntelliSense, and editing work as normal. You can add comments within the editor on these diffs. Both adding single comments and creating a whole review is supported.</p>
+<h2 id="_issues" data-needslink="_issues">Issues<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_issues">#</a></h2>
+<h3 id="_creating-issues" data-needslink="_creating-issues">Creating issues<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_creating-issues">#</a></h3>
+<p>Issues can be created from the <strong>+</strong> button in the <strong>Issues</strong> view and by using the <strong>GitHub Issues: Create Issue from Selection</strong> and <strong>GitHub Issues: Create Issue from Clipboard</strong> commands. They can also be created using a Code Action for "TODO" comments.</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/issue-from-todo.gif" alt="Create Issue from TODO"></p>
+<p>You can configure the trigger for the Code Action using the <strong>GitHub Issues: Create Issue Triggers</strong> (<code>githubIssues.createIssueTriggers</code>) setting.</p>
+<p>The default issue triggers are:</p>
+<pre class="shiki" style="background-color: #FFFFFF"><code><span style="color: #A31515">"githubIssues.createIssueTriggers"</span><span style="color: #000000">: [</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"TODO"</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"todo"</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"BUG"</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"FIXME"</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"ISSUE"</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">"HACK"</span>
+<span style="color: #000000">]</span></code></pre>
+<h3 id="_working-on-issues" data-needslink="_working-on-issues">Working on issues<a class="hash-link transparent" href="https://code.visualstudio.com/docs/editor/github#_working-on-issues">#</a></h3>
+<p>From the <strong>Issues</strong> view, you can see your issues and work on them. By default, when you start working on an issue, a branch will be created for you. You can configure the name of the branch using the <strong>GitHub Issues: Working Issue Branch</strong> (<code>githubIssues.workingIssueBranch</code>) setting. The commit message input box in the <strong>Source Control</strong> view will be populated with a commit message, which can be configured with <strong>GitHub Issues: Working Issue Format SCM</strong> (<code>githubIssues.workingIssueFormatScm</code>).</p>
+<p><img src="./Working with GitHub in Visual Studio Code_files/work-on-issue.gif" alt="Work on Issue"></p>
+<p>If your workflow doesn't involve creating a branch, or if you want to be prompted to enter a branch name every time, you can skip that step by turning off the <strong>GitHub Issues: Use Branch For Issues</strong> (<code>githubIssues.useBranchForIssues</code>) setting.</p>
+
+			<div class="feedback"><div data-reactroot="" class="widget"><form aria-label="Feedback"><div class="buttons"><h3>Was this documentation helpful?</h3><br><button value="1"><!-- react-text: 7 -->Yes<!-- /react-text --><span class="sr-only"> , this page was helpful</span></button><button value="0"><!-- react-text: 10 -->No<!-- /react-text --><span class="sr-only"> , this page was not helpful</span></button></div></form></div></div>
+			
+			<div class="body-footer">7/9/2020</div>
+			
+		</div>
+        <div class="col-sm-3 col-md-2 docs-subnavbar-container">
+            <nav id="docs-subnavbar" aria-label="On Page" data-spy="affix" data-offset-top="20" class="affix">
+				
+				<h4><span class="sr-only">In this article there are 5 sections</span><span aria-hidden="true">In this article</span></h4>
+                <ul class="nav">
+                	
+                		<li class="active"><a href="https://code.visualstudio.com/docs/editor/github#_getting-started-with-github-pull-requests-and-issues">Getting started with GitHub Pull Requests and Issues</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/editor/github#_setting-up-a-repository">Setting up a repository</a></li>
+                	
+                		<li class=""><a href="https://code.visualstudio.com/docs/editor/github#_editor-integration">Editor integration</a></li>
+                	
+                		<li><a href="https://code.visualstudio.com/docs/editor/github#_pull-requests">Pull requests</a></li>
+                	
+                		<li><a href="https://code.visualstudio.com/docs/editor/github#_issues">Issues</a></li>
+                	
+                </ul>
+                
+				<div class="connect-widget"><ul data-reactroot="" class="connect-links"><li id="connect-twitter-link"><a href="https://twitter.com/intent/tweet?original_referer=https://code.visualstudio.com/docs/editor/github&amp;ref_src=twsrc%5Etfw&amp;text=Working%20with%20GitHub%20in%20Visual%20Studio%20Code&amp;tw_p=tweetbutton&amp;url=https://code.visualstudio.com/docs/editor/github&amp;via=code" target="_blank"><img alt="Twitter" src="./Working with GitHub in Visual Studio Code_files/twitter.svg"><!-- react-text: 5 -->Tweet this link<!-- /react-text --></a></li><li id="connect-rssfeed"><a href="https://code.visualstudio.com/feed.xml" target="_blank"><img alt="RSS" src="./Working with GitHub in Visual Studio Code_files/rss.svg"><!-- react-text: 9 -->Subscribe<!-- /react-text --></a></li><li id="connect-stack-overflow"><a href="https://stackoverflow.com/questions/tagged/vscode" target="_blank"><img alt="Stackoverflow" src="./Working with GitHub in Visual Studio Code_files/stackoverflow.svg"><!-- react-text: 13 -->Ask questions<!-- /react-text --></a></li><li id="connect-twitter"><a href="https://go.microsoft.com/fwlink/?LinkID=533687" target="_blank"><img alt="Twitter" src="./Working with GitHub in Visual Studio Code_files/twitter.svg"><!-- react-text: 17 -->Follow @code<!-- /react-text --></a></li><li id="connect-uservoice"><a href="https://go.microsoft.com/fwlink/?LinkID=533482" target="_blank"><img alt="GitHub" src="./Working with GitHub in Visual Studio Code_files/github.svg"><!-- react-text: 21 -->Request features<!-- /react-text --></a></li><li id="connect-github"><a href="https://www.github.com/Microsoft/vscode/issues" target="_blank"><img alt="Issues" src="./Working with GitHub in Visual Studio Code_files/issue.svg"><!-- react-text: 25 -->Report issues<!-- /react-text --></a></li><li id="connect-youtube"><a href="https://www.youtube.com/channel/UCs5Y5_7XK8HLDX0SLNwkd3w" target="_blank"><img alt="YouTube" src="./Working with GitHub in Visual Studio Code_files/youtube.svg"><!-- react-text: 29 -->Watch videos<!-- /react-text --></a></li></ul></div>
+			</nav>
+        </div>
+	</div>
+</div>
+      </div>
+  </div>
+
+  <footer role="contentinfo">
+      <div class="container">
+          <div class="row">
+              <div class="left col-md-7">
+                  <ul class="links">
+                      <li>
+                          <span class="message">Hello from Seattle.</span>
+                      </li>
+                      <li>
+                          <a href="https://go.microsoft.com/fwlink/?LinkID=533687" onclick="followOnTwitter()" role="button" tabindex="0">Follow @code</a>
+                      </li>
+                      <li>
+                          <div class="github-star-button">
+                              <iframe src="./Working with GitHub in Visual Studio Code_files/github-button.html" frameborder="0" scrolling="0" width="130px" height="20px" title="GitHub follow button" aria-label="GitHub follow button"></iframe>
+                          </div>
+                      </li>
+  
+                      <script>
+                          function followOnTwitter() {
+                              var windowFeatures = "location=yes,height=600,width=550,scrollbars=yes,status=yes";
+                              var originalReferer = "&original_referer=" + document.URL;
+                              var screenName = "&screen_name=code";
+                              var URL = "https://twitter.com/intent/follow?" + originalReferer + screenName;
+                              window.open(URL, "_blank", windowFeatures);
+                          }
+                      </script>
+                  </ul>
+              </div>
+              <div class="right col-md-5">
+                  <ul class="links">
+                      <li><a id="footer-support-link" href="https://support.microsoft.com/en-us/getsupport?wf=0&amp;tenant=ClassicCommercial&amp;oaspworkflow=start_1.0.0.0&amp;locale=en-us&amp;supportregion=en-us&amp;pesid=16064&amp;ccsid=636196895839595242" target="_blank">Support</a></li>
+                      <li><a id="footer-privacy-link" href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Privacy</a></li>
+                      <li><a id="footer-terms-link" href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx" target="_blank">Terms of Use</a></li>
+                      <li><a id="footer-license-link" href="https://code.visualstudio.com/License">License</a></li>
+                  </ul>
+                  <div class="copyright">
+                      <a id="footer-microsoft-link" class="logo" href="https://www.microsoft.com/">
+                          <img class="microsoft-logo" src="./Working with GitHub in Visual Studio Code_files/microsoft-logo.png" height="20" alt="Microsoft homepage">
+                          <img class="microsoft-logo-inverted" src="./Working with GitHub in Visual Studio Code_files/microsoft-logo-inverted.png" height="20" alt="Microsoft homepage">
+                      </a>
+                      <span>© 2020 <span itemprop="publisher" itemscope="" itemtype="https://schema.org/Organization">
+  <span itemprop="name">Microsoft</span></span>
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="./Working with GitHub in Visual Studio Code_files/index.js.download"></script>
+
+  
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Product",
+      "name" : "Visual Studio Code",
+      "logo": "https://code.visualstudio.com/assets/favicon.ico",
+      "url" : "https://code.visualstudio.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://code.visualstudio.com/Search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "sameAs" : [
+      "https://en.wikipedia.org/wiki/Visual_Studio_Code",
+      "https://www.facebook.com/visualstudio",
+      "https://twitter.com/code",
+      "https://blogs.msdn.com/b/vscode"
+      ]
+    }
+  </script>
+
+  <!-- [Begin] JSLL script includes -->
+  
+  <script type="text/javascript">
+    var config = {
+      coreData: {
+        appId: "vscode"
+      }
+    };
+    if (awa) {
+      awa.init(config);
+    }
+  </script>
+  <!-- [End] JSLL script includes -->
+</body></html>
