@@ -1,4 +1,5 @@
 <?php
+$active='Home';
 include("includes/db.php");
 include("Functions.php");
 include("Header.php");
@@ -24,7 +25,6 @@ include("Header.php");
         <div class="box">
             <form action="Cart.php" method="POST" enctype="multipart/form-data">
                 <h1>My Cart</h1>
-
                 <?php
                 $ip_add = getRealIPUser();
                 $select_cart = "select * from cart where IP_add='$ip_add'";
@@ -67,7 +67,7 @@ include("Header.php");
                             ?>
                                     <tr>
                                         <td>
-                                            <img class="img-responsive" src="images/<?php echo $product_img1; ?>">
+                                            <img class="img-responsive" src="Admin/images/<?php echo $product_img1; ?>">
                                         </td>
                                         <td>
                                             <a href="ProductPage.php/cake_id=<?php $cake_id; ?>"> <?php echo $product_title; ?></a>
@@ -139,3 +139,9 @@ include("Header.php");
 </body>
 
 </html>
+
+<?php 
+    
+    include_once("footer.php");
+    
+    ?>

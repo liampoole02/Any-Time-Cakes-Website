@@ -1,11 +1,10 @@
 <?php
 
-include("includes/db.php");
-include("Functions.php");
-include("Header.php");
+include_once("includes/db.php");
+include_once("Functions.php");
+include_once("Header.php");
 
 ?>
-
 <html>
 
 <head>
@@ -19,57 +18,57 @@ include("Header.php");
 
 </head>
 
+<section class="header">
+    <div class="side-menu" id="side-menu">
+        <?php
+        include("SideBar.php");
+        ?>
+    </div>
+</section>
+
+
 <body>
-    <!-- <div class="top-nav">
-        <div class="search-bar">
-            <a href="HomePage.php"><img src="9fb327dda9276bcb478beb2453c5f758.jpg" class="logo"></a>
-
-            <i class="fa fa-bars" id="menu-btn" onclick="openMenu()"></i>
-            <i class="fa fa-times" id="close-btn" onclick="closeMenu()"></i>
-
-            <input type="text" class="form-control">
-            <span class="input-group-text"><i class="fa fa-search"></i>
-            </span>
-        </div>
-        <div class="menu-bar">
-            <ul>
-                <li><a href="Cart.php">Cart</a><i class="fa fa-shopping-basket"></i></li>
-                <li><a href="SignUpPage.php">Sign Up</a></li>
-                <li><a href="LoginPage.php">Log In</a></li>
-                <li><a href="MyAccountPage.php">My Account</a></li>
-            </ul>
-        </div>
-    </div> -->
-
-    <div id="content">
-        <div class="container">
-            <div class="col-md-12">
-
-            </div>
-            <div class="col-md-3">
-                <?php
-                include("SideBar.php");
-                ?>
-            </div>
-            <div class="col-md-9">
-                <div class="box">
-                    <?php
-                    if (isset($_GET['OrdersPage'])) {
-                        include("OrdersPage.php");
-                    } else if (isset($_GET['EditAccountPage'])) {
-                        include("EditAccountPage.php");
-                    } else if (isset($_GET['ChangePasswordPage'])) {
-                        include("ChangePasswordPage.php");
-                    } else if (isset($_GET['DeleteAccountPage'])) {
-                        include("DeleteAccountPage.php");
-                    }
-                    ?>
+    <section>
+        <div id="content">
+            <div class="container">
+                <div class="col-md-9">
+                    <div class="box">
+                        <?php
+                        if (isset($_GET['OrdersPage'])) {
+                            include("OrdersPage.php");
+                        } else if (isset($_GET['PayOfflinePage'])) {
+                            include("PayOfflinePage.php");
+                        } else if (isset($_GET['DeleteAccountPage'])) {
+                            include("DeleteAccountPage.php");
+                        } else if (isset($_GET['Logout'])) {
+                            include("Logout.php");
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <section>
 
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+            <script>
+                function openMenu() {
+                    document.getElementById("side-menu").style.display = "block";
+                    document.getElementById("menu-btn").style.display = "none";
+                    document.getElementById("close-btn").style.display = "block";
+                }
+
+                function closeMenu() {
+                    document.getElementById("side-menu").style.display = "none";
+                    document.getElementById("menu-btn").style.display = "block";
+                    document.getElementById("close-btn").style.display = "none";
+
+                }
+            </script>
 </body>
+
+<?php
+include_once("footer.php");
+?>

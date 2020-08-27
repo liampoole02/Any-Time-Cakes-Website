@@ -1,4 +1,5 @@
 <?php
+$active = 'Shop';
 include("includes/db.php");
 include("Functions.php");
 include("Header.php");
@@ -19,28 +20,6 @@ include("Header.php");
 </head>
 
 <body>
-
-    <!-- <div class="top-nav">
-        <div class="search-bar">
-            <a href="HomePage.php"><img src="9fb327dda9276bcb478beb2453c5f758.jpg" class="logo"></a>
-
-            <i class="fa fa-bars" id="menu-btn" onclick="openMenu()"></i>
-            <i class="fa fa-times" id="close-btn" onclick="closeMenu()"></i>
-
-            <input type="text" class="form-control">
-            <span class="input-group-text"><i class="fa fa-search"></i>
-            </span>
-        </div>
-
-        <div class="menu-bar">
-            <ul>
-                <li><a href="Cart.php">Cart</a><i class="fa fa-shopping-basket"></i></li>
-                <li><a href="SignUpPage.php">Sign Up</a></li>
-                <li><a href="LoginPage.php">Log In</a></li>
-                <li><a href="MyAccountPage.php">My Account</a></li>
-            </ul>
-        </div>
-    </div> -->
     <section class="header">
         <div class="side-menu" id="side-menu">
             <h3 class="panel-title"> Cake Categories</h3>
@@ -52,37 +31,36 @@ include("Header.php");
         </div>
     </section>
 
-    <div class="row">
-        <?php
-        if (!isset($_GET['p_cat'])) {
-            if (!isset($_GET['cat'])) {
-                $per_page = 6;
-                if (isset($_GET['page'])) {
-                    $page = $_GET['page'];
-                } else {
-                    $page = 1;
-                }
-                $start_from = ($page - 1) * $per_page;
-                $get_products = "select * from cake order by 1 DESC LIMIT $start_from, $per_page";
+    <section>
+    <?php echo "<div id='content' class='container'>";?>
 
-                $run_products = mysqli_query($con, $get_products);
+        <div class="row">
+            <?php
+            if (!isset($_GET['p_cat'])) {
+                if (!isset($_GET['cat'])) {
+                    $per_page = 6;
+                    if (isset($_GET['page'])) {
+                        $page = $_GET['page'];
+                    } else {
+                        $page = 1;
+                    }
+                    $start_from = ($page - 1) * $per_page;
+                    $get_products = "select * from cake order by 1 DESC LIMIT $start_from, $per_page";
+                    $run_products = mysqli_query($con, $get_products);
 
-                while ($row_products = mysqli_fetch_array($run_products)) {
-                    $cake_id = $row_products['CakeID'];
 
-                    $cake_title = $row_products['CakeName'];
+                    while ($row_products = mysqli_fetch_array($run_products)) {
+                        $cake_id = $row_products['CakeID'];
+                        $cake_title = $row_products['CakeName'];
+                        $cake_price = $row_products['CakePrice'];
+                        $cake_desc = $row_products['CakeDesc'];
+                        $cake_img1 = $row_products['CakeImage1'];
 
-                    $cake_price = $row_products['CakePrice'];
-
-                    $cake_desc = $row_products['CakeDesc'];
-
-                    $cake_img1 = $row_products['CakeImage1'];
-
-                    echo "
+                        echo "
                         <div class='col-md-4 col-sm-6 center-responsive'>
                             <div class='product'>
                                  <a href='ProductPage.php?cake_id=$cake_id'>
-                                    <img class='img-fluid' src='$cake_img1'></img>
+                                    <img class='img-fluid' src='Admin/images/$cake_img1'></img>
                                  </a>
                                  <div class='text'>
                                     <h3>
@@ -91,12 +69,10 @@ include("Header.php");
                                     <p class='price'>
                                           R $cake_price
                                     </p>
-
                                     <p class='button'>
                                         <a class='btn btn-default' href='ProductPage.php?cake_id=$cake_id'>
                                             View Details
                                         </a>
-
                                         <a class='btn btn-primary' href='ProductPage.php?cake_id=$cake_id'>
                                             <i class='fa fa-shopping-cart'></i>Add to Cart
                                         </a>
@@ -105,39 +81,40 @@ include("Header.php");
                                 </div>
                             </div>
                     ";
-                }
-        ?>
-    </div>
+                    }
+            ?>
+        </div>
+    </section>
 
     <center>
         <ul class="pagination">
     <?php
-                $query = "select * from cakes";
-                $result = mysqli_query($con, $query);
-                $total_records = mysqli_num_rows($result);
-                $total_pages = ceil($total_records / $per_page);
+                    $query = "select * from cake";
+                    $result = mysqli_query($con, $query);
+                    $total_records = mysqli_num_rows($result);
+                    $total_pages = ceil($total_records / $per_page);
 
-                echo " 
+                    echo " 
                     <li>
                         <a href='Shop.php?page=1'> " . 'First Page' . " </a>
                     </li>
                     ";
 
-                for ($i = 1; $i <=$total_pages; $i++) {
-                    echo "
+                    for ($i = 1; $i <= $total_pages; $i++) {
+                        echo "
                         <li>
                             <a href='Shop.php?page=" . $i . "'> " . $i . " </a>
                         </li>
                         ";
-                };
+                    };
 
-                echo "
+                    echo "
                         <li>
                             <a href='Shop.php?page=$total_pages'> " . 'Last Page' . " </a>
                         </li>
                         ";
+                }
             }
-        }
 
 
     ?>
@@ -172,3 +149,9 @@ include("Header.php");
 
 
 </div>
+
+<?php
+
+include_once("footer.php");
+
+?>

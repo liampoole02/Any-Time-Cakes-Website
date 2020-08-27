@@ -31,13 +31,13 @@ include("Header.php");
                     <div id="product-slider" class="carousel slide carousel-fade" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/<?php echo $cake_img1; ?>" class="d-block w-100">
+                                <img src="Admin/images/<?php echo $cake_img1; ?>" class="d-block w-100">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/<?php echo $cake_img2; ?>" class="d-block w-100">
+                                <img src="Admin/images/<?php echo $cake_img2; ?>" class="d-block w-100">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/<?php echo $cake_img3; ?>" class="d-block w-100">
+                                <img src="Admin/images/<?php echo $cake_img3; ?>" class="d-block w-100">
                             </div>
                             <a class="carousel-control-prev" href="#product-slider" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,8 +51,6 @@ include("Header.php");
                     </div>
                 </div>
                 <div class="col-md-7">
-                    <p class="new-arrival text-center">
-                    </p>
                     <h2>
                         <?php echo $cake_title; ?>
                     </h2>
@@ -98,11 +96,11 @@ include("Header.php");
                     </form>
                 </div>
     </section>
-    <!-- </div>
-    </div>
-    </div>
-    </section> -->
 
 </body>
 
 </html>
+
+<?php 
+    include_once("footer.php");
+?>

@@ -53,7 +53,7 @@ include("Header.php");
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control" required>
 
-                    <button type="submit" name="register" class="form-control">Login</button>
+                    <button type="submit" name="register" class="form-control">Sign up</button>
                 </div>
 
             </form>
@@ -65,8 +65,6 @@ include("Header.php");
 </html>
 
 <?php
-
-
 if (isset($_POST['register'])) {
     $c_name = $_POST['name'];
     $c_surname = $_POST['surname'];
@@ -96,3 +94,9 @@ if (isset($_POST['register'])) {
 
 
 ?>
+
+<?php 
+    
+    include_once("footer.php");
+    
+    ?>

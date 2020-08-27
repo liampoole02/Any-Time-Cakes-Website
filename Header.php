@@ -1,87 +1,17 @@
 <?php
+
 session_start();
 include_once("includes/db.php");
 include_once("Functions.php");
 
 ?>
 
-<html>
-
-<head>
-
-</head>
-
-<body>
-
-    <div id="top">
-        <div class="container">
-            <div class="col-md-6 offer">
-                <a href="#" class="btn btn-success btn-sm">Welcome</a>
-            </div>
-            <div class="col-md-6 offer">
-                <ul class="menu">
-                    <li><a href="SignUpPage.php">Register</li>
-                    <li><a href="MyAccountPage.php">My Account</li>
-                    <li><a href="Cart.php">My Cart</li>
-                    <li><a href="LoginPage.php">Login</li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="top-nav">
-        <div class="search-bar">
-            <a href="HomePage.php"><img src="9fb327dda9276bcb478beb2453c5f758.jpg" class="logo"></a>
-
-            <i class="fa fa-bars" id="menu-btn" onclick="openMenu()"></i>
-            <i class="fa fa-times" id="close-btn" onclick="closeMenu()"></i>
-
-            <input type="text" class="form-control-a">
-            <span class="input-group-text"><i class="fa fa-search"></i>
-            </span>
-        </div>
-
-        <div class="menu-bar">
-            <ul>
-                <li><a href="Cart.php">Cart</a><i class="fa fa-shopping-basket"></i></li>
-                <li><a href="SignUpPage.php">Sign Up</a></li>
-                <li><a href="LoginPage.php">Log In</a></li>
-                <li><a href="MyAccountPage.php">My Account</a></li>
-                <li><a href="Shop.php">Shop Now</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <?php
-    if (!isset($_SESSION['ClientEmail'])) {
-        echo "Welcome: Guest | ";
-    } else {
-        echo "Welcome: " . $_SESSION['ClientEmail'] . "";
-    }
-
-    ?>
-
-    <?php
-    items();
-    ?>Item(s) in Your cart | Total Price:
-
-    <?php
-    total_price();
-
-    ?>
-
-
-</body>
-
-</html>
-
 <?php
 
 if (isset($_GET['cake_id'])) {
     $cake_id = $_GET['cake_id'];
 
-    $get_cakes = "select * from cake where cakeID='$cake_id'";
+    $get_cakes = "select * from cake where CakeID='$cake_id'";
     $run_cakes = mysqli_query($db, $get_cakes);
     $row_cake = mysqli_fetch_array($run_cakes);
     $categoryID = $row_cake['CategoryID'];
@@ -102,3 +32,86 @@ if (isset($_GET['cake_id'])) {
     $cake_cat_title = $row_cake_cat['CategoryTitle'];
 }
 ?>
+
+<html>
+
+<body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <div id="top">
+        <div class="container">
+            <div class="col-md-6 offer">
+                <a href="HomePage.php"><img src="2020-08-14_01h56_38 (2).png" class="logo"></a>
+                <a href="#" class="btn btn-success btn-sm">
+                    <?php
+                    if (!isset($_SESSION['ClientEmail'])) {
+                        echo "Welcome: Guest  ";
+                    } else {
+                        echo "Welcome: " . $_SESSION['ClientEmail'] . "";
+                    }
+                    ?>
+                </a>
+                <a href="CheckoutPage.php"> <?php items(); ?>Item(s) in Your cart | Total Price:<?php total_price(); ?></a>
+
+            </div>
+            <div class="col-md-6 offer">
+                <ul class="menu">
+                    <li class="<?php if ($active == 'Home') echo "active"; ?>'">
+                        <a href="SignUpPage.php">Register</a></li>
+                    <li class="<?php if ($active == 'Account') echo "active"; ?>'">
+                        <a href="MyAccountPage.php">My Account</a></li>
+                    <li class="<?php if ($active == 'Cart') echo "active"; ?>'">
+                        <a href="Cart.php"><i class="fa fa-shopping-basket"></i>My Cart</a></li>
+                    <li class="<?php if ($active == 'Login') echo "active"; ?>'">
+                        <a href="LoginPage.php">
+                            <?php
+                            if (!isset($_SESSION['ClientEmail'])) {
+                                echo "<a href='LoginPage.php'>Login</a>";
+                            } else {
+                                echo "<a href='Logout.php'>Logout</a>";
+                            }
+                            ?>
+                        </a></li>
+                    <li class="<?php if ($active == 'Shop') echo "active"; ?>'">
+                        <a href="Shop.php">Shop</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="top-nav">
+        <div class="search-bar">
+            <i class="fa fa-bars" id="menu-btn" onclick="openMenu()"></i>
+            <i class="fa fa-times" id="close-btn" onclick="closeMenu()"></i>
+
+            <!-- <input type="text" class="form-control-a">
+            <span class="input-group-text"><i class="fa fa-search"></i> -->
+            </span>
+        </div>
+    </div>
+
+    
+    <script>
+        function openMenu() {
+            document.getElementById("side-menu").style.display = "block";
+            document.getElementById("menu-btn").style.display = "none";
+            document.getElementById("close-btn").style.display = "block";
+        }
+
+        function closeMenu() {
+            document.getElementById("side-menu").style.display = "none";
+            document.getElementById("menu-btn").style.display = "block";
+            document.getElementById("close-btn").style.display = "none";
+
+        }
+    </script>
+
+</body>
+
+</html>

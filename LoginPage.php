@@ -1,12 +1,13 @@
 <?php
+$active='Home';
 
-include("includes/db.php");
-include("Functions.php");
-include("Header.php");
+include_once("includes/db.php");
+include_once("Functions.php");
+include_once("Header.php");
 
 ?>
 
-<html>
+<!-- <html> -->
 
 <head>
     <title>AnyTime Cakes</title>
@@ -19,18 +20,17 @@ include("Header.php");
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
-<body>
+<!-- <body> -->
 
     <div class="col-md-9">
         <div class="box">
-
             <div class="box-header">
                 <center>
                     <h1>Login</h1>
                 </center>
             </div>
 
-            <form method="post">
+            <form method="post" action="CheckoutPage.php">
                 <div class="form-group">
                     <label for="username">Email</label>
                     <input type="text" name="c_email" class="form-control" required>
@@ -49,15 +49,15 @@ include("Header.php");
         </div>
     </div>
 
-</body>
+<!-- </body> -->
 
-</html>
+<!-- </html> -->
 
 <?php
 if (isset($_POST['login'])) {
-    $email = $_POST['c_email'];
+    $c_email = $_POST['c_email'];
     $password = $_POST['c_password'];
-    $select_customer = "select * from client where ClientEmail='$email' AND ClientPassword='$password'";
+    $select_customer = "select * from client where ClientEmail='$c_email' AND ClientPassword='$password'";
     $run_customer = mysqli_query($con, $select_customer);
     $get_ip = getRealIPUser();
     $check_customer = mysqli_num_rows($run_customer);
@@ -69,12 +69,12 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Incorrect email or password')</script>";
         exit();
     }
-    if ($check_customer == 1 and $check_cart == 0) {
-        $_SESSION['CustomerEmail'] = $email;
+    if ($check_customer == 1 AND $check_cart == 0) {
+        $_SESSION['ClientEmail'] = $c_email;
         echo "<script>alert('You are now logged in')</script>";
-        echo "<script>window.open('MyAccountPage.php?my_orders','_self')</script>";
+        echo "<script>window.open('MyAccountPage.php?OrdersPage','_self')</script>";
     } else {
-        $_SESSION['CustomerEmail'] = $email;
+        $_SESSION['ClientEmail'] = $c_email;
         echo "<script>alert('You are now logged in')</script>";
         echo "<script>window.open('CheckoutPage.php','_self')</script>";
     }
@@ -83,3 +83,8 @@ if (isset($_POST['login'])) {
 
 
 ?>
+<?php 
+    
+    include_once("footer.php");
+    
+    ?>

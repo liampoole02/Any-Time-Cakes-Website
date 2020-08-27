@@ -1,4 +1,6 @@
 <?php
+$active='Home';
+
 include("includes/db.php");
 include_once("Functions.php");
 include_once("Header.php");
@@ -6,9 +8,9 @@ include_once("Header.php");
 ?>
 
 <html>
-yes
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AnyTime Cakes</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -22,7 +24,7 @@ yes
 
 <body>
 
-    <section class="header">
+    <!-- <section class="header"> -->
         <div class="side-menu" id="side-menu">
             <h3 class="panel-title"> Cake Categories</h3>
             <ul>
@@ -31,19 +33,16 @@ yes
                 ?>
             </ul>
         </div>
-    </section>
+    <!-- </section> -->
 
     <div class="slider">
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="carrotCake.jpg" class="d-block w-100">
+                    <img src="2020-08-11_19h18_51 (2).png" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="cupCake.jpg" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="chocolateCake.jpg" class="d-block w-100">
+                    <img src="2020-08-14_01h56_38 (2).png" class="d-block w-100">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
@@ -83,20 +82,10 @@ yes
         </div>
     </div>
 
-    <script>
-        function openMenu() {
-            document.getElementById("side-menu").style.display = "block";
-            document.getElementById("menu-btn").style.display = "none";
-            document.getElementById("close-btn").style.display = "block";
-        }
-
-        function closeMenu() {
-            document.getElementById("side-menu").style.display = "none";
-            document.getElementById("menu-btn").style.display = "block";
-            document.getElementById("close-btn").style.display = "none";
-
-        }
-    </script>
 </body>
-
+<?php 
+    
+    include_once("footer.php");
+    
+    ?>
 </html>

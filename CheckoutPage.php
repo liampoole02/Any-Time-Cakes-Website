@@ -1,3 +1,10 @@
+<?php
+include_once("includes/db.php");
+include_once("Functions.php");
+include("Header.php");
+
+?> 
+
 <html>
 
 <head>
@@ -13,41 +20,25 @@
 </head>
 
 <body>
-    <div class="top-nav">
-        <div class="search-bar">
-            <a href="HomePage.php"><img src="9fb327dda9276bcb478beb2453c5f758.jpg" class="logo"></a>
 
-            <i class="fa fa-bars" id="menu-btn" onclick="openMenu()"></i>
-            <i class="fa fa-times" id="close-btn" onclick="closeMenu()"></i>
+    <div class="col-md-9">
+        <?php
+        if (!isset($_SESSION['ClientEmail'])) {
+            include("LoginPage.php");
+        } else {
+            include("Payment.php");
+        }
 
-            <input type="text" class="form-control">
-            <span class="input-group-text"><i class="fa fa-search"></i>
-            </span>
-        </div>
-        <div class="menu-bar">
-            <ul>
-                <li><a href="Cart.php">Cart</a><i class="fa fa-shopping-basket"></i></li>
-                <li><a href="SignUpPage.php">Sign Up</a></li>
-                <li><a href="LoginPage.php">Log In</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="box">
-        <h1 class="text-center">Payment methods</h1>
-        <p class="lead text-center">
-            <a class="" href="#">Cash payment on collection</a>
-        </p>
-
-        <center>
-            <p class="lead">
-                <a href="#">
-                    Paypal
-                </a>
-            </p>
-        </center>
+        ?>
 
     </div>
+
 </body>
 
 </html>
+
+<?php 
+    
+    include_once("footer.php");
+    
+    ?>

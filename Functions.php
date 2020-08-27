@@ -54,26 +54,21 @@ function getPro()
 
     while ($row_products = mysqli_fetch_array($run_cakes)) {
         $cake_id = $row_products['CakeID'];
-
         $cake_title = $row_products['CakeName'];
-
         $cake_price = $row_products['CakePrice'];
-
-        $cake_desc = $row_products['CakeDesc'];
-
         $cake_img1 = $row_products['CakeImage1'];
 
         echo "
         <div class='col-md-4 col-sm-6 single'>
             <div class='product'>
                 <a href='ProductPage.php?cake_id=$cake_id'>
-                    <img class='img-fluid' src='$cake_img1'>
+                    <img class='img-fluid' src='Admin/images/$cake_img1'>
                 </a>
                         <div class='text'>
                         <h3>
-                        <a href='ProductPage.php?cake_id=$cake_id'>
+                            <a href='ProductPage.php?cake_id=$cake_id'>
                             $cake_title
-                        </a>
+                            </a>
                         </h3>
 
                         <p class='price'>
@@ -108,10 +103,9 @@ function getCats()
         $p_cat_id = $row_p_cats['CategoryID'];
         $p_cat_title = $row_p_cats['CategoryTitle'];
         echo "
-        
-        <li>
-            <a href='Shop.php?p_cat=$p_cat_id'>$p_cat_title</a>
-        </li>
+             <li>
+                 <a href='Shop.php?p_cat=$p_cat_id'>$p_cat_title</a>
+             </li>
         
         ";
     }
@@ -145,17 +139,20 @@ function getPCatPro()
             echo "
             <div class='box'>
                 <h1> No Products Found</h1>
-
             </div>
-            
             ";
         } else {
             echo "
+            
+            <div id='content' class='container'>
             <div class='box'>
+
                 <h1> $p_cat_title</h1>
                     <p> $p_cat_desc </p>
             </div>
-            
+            </div>
+
+            <br>
             ";
         }
 
@@ -169,15 +166,15 @@ function getPCatPro()
             echo "
 
             <div class='col-md-4 col-sm-6 single'>
-            <div class='product'>
-                <a href='ProductPage.php?cake_id=$cake_id'>
-                    <img class='img-fluid' src='$cake_img1'>
-                </a>
-                        <div class='text'>
+                <div class='product'>
+                    <a href='ProductPage.php?cake_id=$cake_id'>
+                        <img class='img-fluid' src='Admin/images/$cake_img1'>
+                     </a>
+                    <div class='text'>
                         <h3>
-                        <a href='ProductPage.php?cake_id=$cake_id'>
-                            $cake_title
-                        </a>
+                            <a href='ProductPage.php?cake_id=$cake_id'>
+                                 $cake_title
+                             </a>
                         </h3>
 
                         <p class='price'>
@@ -193,8 +190,9 @@ function getPCatPro()
                             </a>
                         </p>
                     </div>
-                    </div>
-                    </div>
+
+                </div>
+            </div>
             ";
         }
     }
