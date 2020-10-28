@@ -55,7 +55,7 @@ if (isset($_GET['cake_id'])) {
                     }
                     ?>
                 </a>
-                <a href="CheckoutPage.php"> <?php items(); ?>Item(s) in Your cart | Total Price:<?php total_price(); ?></a>
+                <a href="CheckoutPage.php"> <?php items(); ?> Item(s) in Your cart | Total Price:<?php total_price(); ?></a>
 
             </div>
             <div class="col-md-6 offer">

@@ -145,11 +145,9 @@ function getPCatPro()
             echo "
             
             <div id='content' class='container'>
-            <div class='box'>
 
                 <h1> $p_cat_title</h1>
                     <p> $p_cat_desc </p>
-            </div>
             </div>
 
             <br>

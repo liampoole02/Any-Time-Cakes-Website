@@ -73,7 +73,7 @@ include_once("Header.php");
             </div>
     </section>
 
-    <div id="content" class="container">
+    <div id="content" class="homePage">
         <h3>Popular picks</h3>
         <div class="row">
             <?php

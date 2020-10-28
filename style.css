@@ -159,6 +159,14 @@ body {
     color: white;
 }
 
+.side-menu ul li a {
+    list-style-type: none;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    color: white;
+}
+
 .side-menu ul li:hover {
     color: grey
 }
@@ -232,7 +240,21 @@ body {
 }
 
 .featured-categories {
-    margin: 50px 0;
+    /* margin: 50px 0; */
+}
+
+.featured-categories .row {
+    margin-left: 15%;
+    width: 85%;
+}
+
+.homePage .row {
+    width: 85%;
+    margin-left: 15%;
+}
+
+.homePage .h3 {
+    margin-left: 15%;
 }
 
 .featured-categories img {

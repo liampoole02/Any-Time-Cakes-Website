@@ -20,40 +20,59 @@ include("Header.php");
 </head>
 
 <body>
- 
+
     <div class="col-md-9">
         <div class="box">
 
             <div class="box-header">
                 <center>
-                <h1>Sign Up</h1>
+                    <h1>Sign Up</h1>
                     <p class="lead">Already have an account...?</p>
                 </center>
             </div>
 
-            <form action="SignUpPage.php" method="POST" enctype="multipart/data">
+            <form method="POST" action="SignUpPage.php" enctype="multipart/data" name="vform" onsubmit="return validate()">
+
                 <div class="form-group">
                     <h1>Sign Up</h1><br>
-                </div>
 
-                <div class="form-group">
+                    <div class="form-group">
+                        <label for="name" >Name</label>
+                        <input type="text" id="name" class="wrong-input">
+                        <p class="error"></p>
+                    </div>
 
-                    <label for="name">Name</label>
-                    <input type="text" name="name" class="form-control" required>
 
-                    <label for="surname">Surname</label>
-                    <input type="text" name="surname" class="form-control" required>
+                    <div>
 
-                    <label for="Mobile No">Mobile No</label>
-                    <input type="text" name="mobile" class="form-control" required>
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" class="wrong-input">
+                        <p class="error"></p>
 
-                    <label for="Email address">Email address</label>
-                    <input type="text" name="email" class="form-control" required>
+                    </div>
 
-                    <label for="password">Password</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <div>
 
-                    <button type="submit" name="register" class="form-control">Sign up</button>
+                        <label for="Mobile No">Mobile No</label>
+                        <input type="text" id="mobile" class="wrong-input">
+                        <p class="error"></p>
+
+                    </div>
+
+                    <div>
+                        <label for="Email address">Email address</label>
+                        <input type="text" id="email" class="wrong-input">
+                        <p class="error"></p>
+
+                    </div>
+
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="wrong-input">
+                        <p class="error"></p>
+                    </div>
+
+                    <input type="submit" name="register" class="btn">Sign up</input>
                 </div>
 
             </form>
@@ -63,6 +82,9 @@ include("Header.php");
 </body>
 
 </html>
+
+
+<script src="validate.js"></script>
 
 <?php
 if (isset($_POST['register'])) {
@@ -95,8 +117,8 @@ if (isset($_POST['register'])) {
 
 ?>
 
-<?php 
-    
-    include_once("footer.php");
-    
-    ?>
+<?php
+
+include_once("footer.php");
+
+?>
