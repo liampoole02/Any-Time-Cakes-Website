@@ -31,56 +31,51 @@ include_once("Header.php");
                 <center>
 
                     <h2> Feel free to Contact Us</h2>
-
                     <p class="text-muted">
-
                         If you have any questions, feel free to contact us. Our Customer Service work <strong>24/7</strong>
-
                     </p>
 
                 </center>
 
                 <form action="contact.php" method="post">
+                    <div class="col-lg-8 m-auto d-block">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div>
 
-                    <div class="form-group">
+                        <div class="form-group">
 
-                        <label>Name</label>
+                            <label>Email</label>
 
-                        <input type="text" class="form-control" name="name" required>
+                            <input type="text" class="form-control" name="email" required>
 
-                    </div>
+                        </div>
 
-                    <div class="form-group">
+                        <div class="form-group">
 
-                        <label>Email</label>
+                            <label>Subject</label>
 
-                        <input type="text" class="form-control" name="email" required>
+                            <input type="text" class="form-control" name="subject" required>
 
-                    </div>
+                        </div>
 
-                    <div class="form-group">
+                        <div class="form-group">
 
-                        <label>Subject</label>
+                            <label>Message</label>
 
-                        <input type="text" class="form-control" name="subject" required>
+                            <textarea name="message" class="form-control"></textarea>
 
-                    </div>
+                        </div>
 
-                    <div class="form-group">
+                        <center>
 
-                        <label>Message</label>
+                            <button type="submit" name="submit" class="btn btn-primary">
 
-                        <textarea name="message" class="form-control"></textarea>
+                                <i class="fa fa-user-md"></i>Send Message
 
-                    </div>
-
-                    <div class="text-center">
-
-                        <button type="submit" name="submit" class="btn btn-primary">
-
-                            <i class="fa fa-user-md"></i>Send Message
-
-                        </button>
+                            </button>
+                        </center>
 
                     </div>
 

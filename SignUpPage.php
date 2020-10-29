@@ -31,48 +31,51 @@ include("Header.php");
                 </center>
             </div>
 
-            <form method="POST" action="SignUpPage.php" enctype="multipart/data" name="vform" onsubmit="return validate()">
+            <form method="POST" action="SignUpPage.php" enctype="multipart/data" onsubmit="return validate()">
 
-                <div class="form-group">
-                    <h1>Sign Up</h1><br>
+                <div class="col-lg-8 m-auto d-block">
 
                     <div class="form-group">
-                        <label for="name" >Name</label>
-                        <input type="text" id="name" class="wrong-input">
-                        <p class="error"></p>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-control">
+                        <span id="sname" class="error"></span>
+
                     </div>
 
 
-                    <div>
+                    <div class="form-group">
 
                         <label for="surname">Surname</label>
-                        <input type="text" id="surname" class="wrong-input">
-                        <p class="error"></p>
+                        <input type="text" id="surname" name="surname" class="form-control">
+                        <span id="ssurname" class="error"></span>
 
                     </div>
 
-                    <div>
+                    <div class="form-group">
 
                         <label for="Mobile No">Mobile No</label>
-                        <input type="text" id="mobile" class="wrong-input">
-                        <p class="error"></p>
+                        <input type="text" id="mobile" name="mobile" class="form-control">
+                        <span id="smobile" class="error"></span>
 
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <label for="Email address">Email address</label>
-                        <input type="text" id="email" class="wrong-input">
-                        <p class="error"></p>
+                        <input type="text" id="email" name="email" class="form-control">
+                        <span id="semail" class="error"></span>
 
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" class="wrong-input">
-                        <p class="error"></p>
+                        <input type="password" id="password" name="password" class="form-control">
+                        <span id="spassword" class="error"></span>
+
                     </div>
 
-                    <input type="submit" name="register" class="btn">Sign up</input>
+                    <center>
+                        <input type="submit" value="Sign-up" name="register" class="btn btn-primary"></input>
+                    </center>
                 </div>
 
             </form>
@@ -83,8 +86,6 @@ include("Header.php");
 
 </html>
 
-
-<script src="validate.js"></script>
 
 <?php
 if (isset($_POST['register'])) {
@@ -122,3 +123,72 @@ if (isset($_POST['register'])) {
 include_once("footer.php");
 
 ?>
+
+<script type="text/javascript">
+    function validate() {
+
+        var name = document.getElementById('name');
+        var surname = document.getElementById('surname');
+        var mobile = document.getElementById('mobile');
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+
+        removeMessage();
+
+        console.log(name);
+
+        var valid = true;
+
+        if (name.value == "") {
+            name.className == "form-control";
+            // name.nextElementSibling.innerHTML = "Please fill in a Name";
+
+            document.getElementById('sname').innerHTML = " ** Please enter a name";
+            valid = false;
+        }
+        if (surname.value == "") {
+            surname.className == "form-control";
+            document.getElementById('ssurname').innerHTML = " ** Please enter a surname";
+            valid = false;
+        }
+        if (mobile.value == "") {
+            mobile.className == "form-control";
+            document.getElementById('smobile').innerHTML = " ** Please enter a mobile number";
+            valid = false;
+        }
+        if (mobile.value.length != 10) {
+            mobile.className == "form-control";
+            document.getElementById('smobile').innerHTML = " ** Mobile number has to be 10 characters";
+            valid = false;
+        }
+        if (isNaN(mobile.value)) {
+            mobile.className == "form-control";
+            document.getElementById('smobile').innerHTML = " ** Mobile number cannot contain characters";
+            valid = false;
+        }
+        if (email.value == "") {
+            email.className == "form-control";
+            document.getElementById('semail').innerHTML = " ** Please enter an email";
+            valid = false;
+
+        }
+        if (password.value == "") {
+            password.className == "form-control";
+            document.getElementById('spassword').innerHTML = " ** Please enter a password";
+            valid = false;
+        }
+        return valid;
+
+    }
+
+
+    function removeMessage() {
+        var errorInput = document.querySelectorAll(".form-control");
+        [].forEach.call(errorInput, function(el) {});
+
+        var errorPara = document.querySelectorAll(".error");
+        [].forEach.call(errorPara, function(el) {
+            el.innerHTML = "";
+        });
+    }
+</script>

@@ -507,3 +507,7 @@ body {
 #copyright p {
     margin: 0px;
 }
+
+.form-group span {
+    background-color: red;
+}

@@ -1,5 +1,5 @@
 <?php
-$active='Home';
+$active = 'Home';
 
 include_once("includes/db.php");
 include_once("Functions.php");
@@ -7,7 +7,7 @@ include_once("Header.php");
 
 ?>
 
-<!-- <html> -->
+<html>
 
 <head>
     <title>AnyTime Cakes</title>
@@ -20,7 +20,7 @@ include_once("Header.php");
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 
-<!-- <body> -->
+<body>
 
     <div class="col-md-9">
         <div class="box">
@@ -30,28 +30,42 @@ include_once("Header.php");
                 </center>
             </div>
 
-            <form method="post" action="CheckoutPage.php">
-                <div class="form-group">
-                    <label for="username">Email</label>
-                    <input type="text" name="c_email" class="form-control" required>
+            <form method="POST" action="CheckoutPage.php" enctype="multipart/data" onsubmit="return validate()">
+                <div class="col-lg-8 m-auto d-block">
 
-                    <label for="password">Password</label>
-                    <input type="password" name="c_password" class="form-control" required>
+                    <div class="form-group">
+                        <label for="username">Email</label>
+                        <input type="text" name="c_email" id="c_email" class="form-control">
+                        <span id="semail" class="error"></span>
+                    </div>
 
-                    <button type="submit" name="login" class="form-control">Login<i class="fa fa-sign-in"></i></button>
+                    <div class="form-group">
+
+                        <label for="password">Password</label>
+                        <input type="password" name="c_password" id="c_password" class="form-control">
+                        <span id="spassword" class="error"></span>
+
+                    </div>
+                    <center>
+                        <input type="submit" value="Login" name="login" class="btn btn-primary"><i class="fa fa-sign-in"></i></input>
+                    </center>
+
+
                 </div>
             </form>
+
             <center>
                 <a href="SignUpPage.php">
-                    <h4>Don't have an account...? Sign-up here</h4>
+                    <h6>Don't have an account...?<br> Sign-up here</h6>
                 </a>
             </center>
         </div>
     </div>
 
-<!-- </body> -->
+</body>
 
-<!-- </html> -->
+</html>
+
 
 <?php
 if (isset($_POST['login'])) {
@@ -69,7 +83,7 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Incorrect email or password')</script>";
         exit();
     }
-    if ($check_customer == 1 AND $check_cart == 0) {
+    if ($check_customer == 1 and $check_cart == 0) {
         $_SESSION['ClientEmail'] = $c_email;
         echo "<script>alert('You are now logged in')</script>";
         echo "<script>window.open('MyAccountPage.php?OrdersPage','_self')</script>";
@@ -83,8 +97,49 @@ if (isset($_POST['login'])) {
 
 
 ?>
-<?php 
-    
-    include_once("footer.php");
-    
-    ?>
+<?php
+
+include_once("footer.php");
+
+?>
+
+<script type="text/javascript">
+    function validate() {
+
+        var email = document.getElementById('c_email');
+        var password = document.getElementById('c_password');
+
+        console.log(name);
+
+
+        removeMessage();
+
+
+        var valid = true;
+
+        if (email.value == "") {
+            email.className == "form-control";
+            document.getElementById('semail').innerHTML = " ** Please enter an email";
+            valid = false;
+
+        }
+        if (password.value == "") {
+            password.className == "form-control";
+            document.getElementById('spassword').innerHTML = " ** Please enter a password";
+            valid = false;
+        }
+        return valid;
+
+    }
+
+
+    function removeMessage() {
+        var errorInput = document.querySelectorAll(".form-control");
+        [].forEach.call(errorInput, function(el) {});
+
+        var errorPara = document.querySelectorAll(".error");
+        [].forEach.call(errorPara, function(el) {
+            el.innerHTML = "";
+        });
+    }
+</script>

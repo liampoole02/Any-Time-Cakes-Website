@@ -32,8 +32,8 @@ include("Header.php");
     </section>
 
     <section>
-    <?php echo "<div id='content' class='container'>";?>
 
+   <div id="content" class="container">
         <div class="row">
             <?php
             if (!isset($_GET['p_cat'])) {
@@ -86,6 +86,8 @@ include("Header.php");
         </div>
     </section>
 
+    <div class="col-lg-8 m-auto d-block">
+        
     <center>
         <ul class="pagination">
     <?php
@@ -121,6 +123,7 @@ include("Header.php");
         </ul>
     </center>
     </div>
+    
 
     <div class="row">
         <?php

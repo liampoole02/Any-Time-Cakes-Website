@@ -90,8 +90,8 @@ if (isset($_GET['cake_id'])) {
             <i class="fa fa-bars" id="menu-btn" onclick="openMenu()"></i>
             <i class="fa fa-times" id="close-btn" onclick="closeMenu()"></i>
 
-            <!-- <input type="text" class="form-control-a">
-            <span class="input-group-text"><i class="fa fa-search"></i> -->
+            <input type="text" class="form-control-a">
+            <span class="input-group-text"><i class="fa fa-search"></i>
             </span>
         </div>
     </div>
