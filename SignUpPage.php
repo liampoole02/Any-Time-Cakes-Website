@@ -37,7 +37,7 @@ include("Header.php");
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Apple">
                         <span id="sname" class="error"></span>
 
                     </div>
@@ -46,7 +46,7 @@ include("Header.php");
                     <div class="form-group">
 
                         <label for="surname">Surname</label>
-                        <input type="text" id="surname" name="surname" class="form-control">
+                        <input type="text" id="surname" name="surname" class="form-control" placeholder="Smith">
                         <span id="ssurname" class="error"></span>
 
                     </div>
@@ -54,21 +54,21 @@ include("Header.php");
                     <div class="form-group">
 
                         <label for="Mobile No">Mobile No</label>
-                        <input type="text" id="mobile" name="mobile" class="form-control">
+                        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="0873756839">
                         <span id="smobile" class="error"></span>
 
                     </div>
 
                     <div class="form-group">
                         <label for="Email address">Email address</label>
-                        <input type="text" id="email" name="email" class="form-control">
+                        <input type="text" id="email" name="email" class="form-control" placeholder="apple@fruit.gum">
                         <span id="semail" class="error"></span>
 
                     </div>
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control">
+                        <input type="password" id="password" name="password" class="form-control" placeholder="apple432">
                         <span id="spassword" class="error"></span>
 
                     </div>
@@ -140,40 +140,31 @@ include_once("footer.php");
         var valid = true;
 
         if (name.value == "") {
-            name.className == "form-control";
-            // name.nextElementSibling.innerHTML = "Please fill in a Name";
-
             document.getElementById('sname').innerHTML = " ** Please enter a name";
             valid = false;
         }
         if (surname.value == "") {
-            surname.className == "form-control";
             document.getElementById('ssurname').innerHTML = " ** Please enter a surname";
             valid = false;
         }
         if (mobile.value == "") {
-            mobile.className == "form-control";
             document.getElementById('smobile').innerHTML = " ** Please enter a mobile number";
             valid = false;
         }
         if (mobile.value.length != 10) {
-            mobile.className == "form-control";
             document.getElementById('smobile').innerHTML = " ** Mobile number has to be 10 characters";
             valid = false;
         }
         if (isNaN(mobile.value)) {
-            mobile.className == "form-control";
             document.getElementById('smobile').innerHTML = " ** Mobile number cannot contain characters";
             valid = false;
         }
         if (email.value == "") {
-            email.className == "form-control";
             document.getElementById('semail').innerHTML = " ** Please enter an email";
             valid = false;
 
         }
         if (password.value == "") {
-            password.className == "form-control";
             document.getElementById('spassword').innerHTML = " ** Please enter a password";
             valid = false;
         }
@@ -183,9 +174,6 @@ include_once("footer.php");
 
 
     function removeMessage() {
-        var errorInput = document.querySelectorAll(".form-control");
-        [].forEach.call(errorInput, function(el) {});
-
         var errorPara = document.querySelectorAll(".error");
         [].forEach.call(errorPara, function(el) {
             el.innerHTML = "";

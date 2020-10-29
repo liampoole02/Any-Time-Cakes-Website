@@ -37,18 +37,22 @@ include_once("Header.php");
 
                 </center>
 
-                <form action="contact.php" method="post">
+                <form action="contact.php" method="post" onsubmit="return validate()">
                     <div class="col-lg-8 m-auto d-block">
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" name="name" required>
+                            <input type="text" class="form-control" name="name" id="name">
+                            <span id="sname" class="error"></span>
+
                         </div>
 
                         <div class="form-group">
 
                             <label>Email</label>
 
-                            <input type="text" class="form-control" name="email" required>
+                            <input type="text" class="form-control" name="email" id="email">
+                            <span id="semail" class="error"></span>
+
 
                         </div>
 
@@ -56,7 +60,9 @@ include_once("Header.php");
 
                             <label>Subject</label>
 
-                            <input type="text" class="form-control" name="subject" required>
+                            <input type="text" class="form-control" name="subject" id="subject">
+                            <span id="ssubject" class="error"></span>
+
 
                         </div>
 
@@ -64,7 +70,9 @@ include_once("Header.php");
 
                             <label>Message</label>
 
-                            <textarea name="message" class="form-control"></textarea>
+                            <textarea name="message" class="form-control" id="message"></textarea>
+                            <span id="smessage" class="error"></span>
+
 
                         </div>
 
@@ -118,6 +126,45 @@ include_once("Header.php");
 
     <script src="js/jquery-331.min.js"></script>
     <script src="js/bootstrap-337.min.js"></script>
+
+    <script>
+        function validate() {
+            var name = document.getElementById('name');
+            var email = document.getElementById('email');
+            var subject = document.getElementById('subject');
+            var message = document.getElementById('message');
+
+            removeMessage();
+
+            var valid = true;
+
+
+            if (name.value == "") {
+                document.getElementById('sname').innerHTML = "Please enter a name";
+                valid = false;
+            }
+            if (email.value == "") {
+                document.getElementById('semail').innerHTML = "Please enter an email address";
+                valid = false;
+            }
+            if (subject.value == "") {
+                document.getElementById('ssubject').innerHTML = "Please enter a subject";
+                valid = false;
+            }
+            if (message.value == "") {
+                document.getElementById('smessage').innerHTML = "Please enter a message";
+                valid = false;
+            }
+            return valid;
+        }
+
+        function removeMessage() {
+            var errorPara = document.querySelectorAll(".error");
+            [].forEach.call(errorPara, function(el) {
+                el.innerHTML = "";
+            });
+        }
+    </script>
 
 
 </body>

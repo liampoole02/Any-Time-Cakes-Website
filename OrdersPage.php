@@ -55,95 +55,70 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
 ?>
 
 <html>
+<center>
+    <h1>My Orders</h1>
+    <p class="lead"> Your orders on one place</p>
 
-<head>
-    <title>AnyTime Cakes</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="table-resposive">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>No:</th>
+                    <th>Amount Due</th>
+                    <th>Invoice No:</th>
+                    <th>Quantity:</th>
+                    <th>Order Date:</th>
+                    <th>Status:</th>
+                    <th>Confirm:</th>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+                </tr>
+            </thead>
+            <tbody>
 
-</head>
+                <?php
+                $customer_session = $_SESSION['ClientEmail'];
+                $get_customer = "select * from client where ClientEmail='$customer_session'";
+                $run_customer = mysqli_query($con, $get_customer);
+                $row_customer = mysqli_fetch_array($run_customer);
+                $customer_id = $row_customer['ClientID'];
+                $get_orders = "select * from clientorder where ClientID='$customer_id'";
+                $run_orders = mysqli_query($con, $get_orders);
+                $i = 0;
 
-<body>
-    <div id="content">
-        <div class="container">
-            <center>
-                <h1>My Orders
-                </h1>
+                while ($row_orders = mysqli_fetch_array($run_orders)) {
+                    $order_id = $row_orders['OrderID'];
+                    $due_amount = $row_orders['DueAmount'];
+                    $invoice_no = $row_orders['InvoiceNo'];
+                    $qty = $row_orders['Quantity'];
+                    $order_date = $row_orders['OrderDate'];
+                    $order_status = $row_orders['OrderStatus'];
+                    $i++;
 
-                <p class="lead"> Your orders on one place</p>
+                    if ($order_status == 'Pending') {
+                        $order_status = 'Unpaid';
+                    } else {
+                        $order_status = 'Paid';
+                    }
 
-                <!-- <p class="text-muted">
-                    if you have any questions
-                </p> -->
-            </center>
+                ?>
+                    <tr>
+                        <th> <?php echo $i; ?></th>
 
-            <hr>
-            <div class=table-resposive>
-                <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>No:</th>
-                            <th>Amount Due</th>
-                            <th>Invoice No:</th>
-                            <th>Quantity:</th>
-                            <th>Order Date:</th>
-                            <th>Status:</th>
-                            <th>Confirm:</th>
+                        <td>R<?php echo $due_amount; ?></td>
+                        <td><?php echo $invoice_no; ?></td>
+                        <td><?php echo $qty; ?></td>
+                        <td><?php echo $order_date; ?></td>
+                        <td><?php echo $order_status; ?></td>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                        <td><a href="ConfirmPayment.php?order_id=<?php echo $order_id; ?>" target="_blank" class="btn btn-primary btn sm">Confirm Payment</a></td>
 
-                        <?php
-                        $customer_session = $_SESSION['ClientEmail'];
-                        $get_customer = "select * from client where ClientEmail='$customer_session'";
-                        $run_customer = mysqli_query($con, $get_customer);
-                        $row_customer = mysqli_fetch_array($run_customer);
-                        $customer_id = $row_customer['ClientID'];
-                        $get_orders = "select * from clientorder where ClientID='$customer_id'";
-                        $run_orders = mysqli_query($con, $get_orders);
-                        $i = 0;
+                    </tr>
 
-                        while ($row_orders = mysqli_fetch_array($run_orders)) {
-                            $order_id = $row_orders['OrderID'];
-                            $due_amount = $row_orders['DueAmount'];
-                            $invoice_no = $row_orders['InvoiceNo'];
-                            $qty = $row_orders['Quantity'];
-                            $order_date = $row_orders['OrderDate'];
-                            $order_status = $row_orders['OrderStatus'];
-                            $i++;
-
-                            if ($order_status == 'Pending') {
-                                $order_status = 'Unpaid';
-                            } else {
-                                $order_status = 'Paid';
-                            }
-
-                        ?>
-                            <tr>
-                                <th> <?php echo $i; ?></th>
-
-                                <td>R<?php echo $due_amount; ?></td>
-                                <td><?php echo $invoice_no; ?></td>
-                                <td><?php echo $qty; ?></td>
-                                <td><?php echo $order_date; ?></td>
-                                <td><?php echo $order_status; ?></td>
-
-                                <td><a href="ConfirmPayment.php?order_id=<?php echo $order_id; ?>" target="_blank" class="btn btn-primary btn sm">Confirm Payment</a></td>
-
-                            </tr>
-
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
-</body>
+</center>
 
 </html>

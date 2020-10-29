@@ -35,14 +35,14 @@ include_once("Header.php");
 
                     <div class="form-group">
                         <label for="username">Email</label>
-                        <input type="text" name="c_email" id="c_email" class="form-control">
+                        <input type="text" name="c_email" id="c_email" class="form-control" placeholder="apple@fruit.gum">
                         <span id="semail" class="error"></span>
                     </div>
 
                     <div class="form-group">
 
                         <label for="password">Password</label>
-                        <input type="password" name="c_password" id="c_password" class="form-control">
+                        <input type="password" name="c_password" id="c_password" class="form-control" placeholder="apple432">
                         <span id="spassword" class="error"></span>
 
                     </div>
@@ -118,13 +118,11 @@ include_once("footer.php");
         var valid = true;
 
         if (email.value == "") {
-            email.className == "form-control";
             document.getElementById('semail').innerHTML = " ** Please enter an email";
             valid = false;
 
         }
         if (password.value == "") {
-            password.className == "form-control";
             document.getElementById('spassword').innerHTML = " ** Please enter a password";
             valid = false;
         }
@@ -134,8 +132,6 @@ include_once("footer.php");
 
 
     function removeMessage() {
-        var errorInput = document.querySelectorAll(".form-control");
-        [].forEach.call(errorInput, function(el) {});
 
         var errorPara = document.querySelectorAll(".error");
         [].forEach.call(errorPara, function(el) {
