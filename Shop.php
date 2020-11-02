@@ -33,30 +33,30 @@ include("Header.php");
 
     <section>
 
-   <div id="content" class="container">
-        <div class="row">
-            <?php
-            if (!isset($_GET['p_cat'])) {
-                if (!isset($_GET['cat'])) {
-                    $per_page = 6;
-                    if (isset($_GET['page'])) {
-                        $page = $_GET['page'];
-                    } else {
-                        $page = 1;
-                    }
-                    $start_from = ($page - 1) * $per_page;
-                    $get_products = "select * from cake order by 1 DESC LIMIT $start_from, $per_page";
-                    $run_products = mysqli_query($con, $get_products);
+        <div id="content" class="container">
+            <div class="row">
+                <?php
+                if (!isset($_GET['p_cat'])) {
+                    if (!isset($_GET['cat'])) {
+                        $per_page = 6;
+                        if (isset($_GET['page'])) {
+                            $page = $_GET['page'];
+                        } else {
+                            $page = 1;
+                        }
+                        $start_from = ($page - 1) * $per_page;
+                        $get_products = "select * from cake order by 1 DESC LIMIT $start_from, $per_page";
+                        $run_products = mysqli_query($con, $get_products);
 
 
-                    while ($row_products = mysqli_fetch_array($run_products)) {
-                        $cake_id = $row_products['CakeID'];
-                        $cake_title = $row_products['CakeName'];
-                        $cake_price = $row_products['CakePrice'];
-                        $cake_desc = $row_products['CakeDesc'];
-                        $cake_img1 = $row_products['CakeImage1'];
+                        while ($row_products = mysqli_fetch_array($run_products)) {
+                            $cake_id = $row_products['CakeID'];
+                            $cake_title = $row_products['CakeName'];
+                            $cake_price = $row_products['CakePrice'];
+                            $cake_desc = $row_products['CakeDesc'];
+                            $cake_img1 = $row_products['CakeImage1'];
 
-                        echo "
+                            echo "
                         <div class='col-md-4 col-sm-6 center-responsive'>
                             <div class='product'>
                                  <a href='ProductPage.php?cake_id=$cake_id'>
@@ -81,49 +81,46 @@ include("Header.php");
                                 </div>
                             </div>
                     ";
-                    }
-            ?>
-        </div>
-    </section>
+                        }
+                ?>
 
-    <div class="col-lg-8 m-auto d-block">
-        
-    <center>
-        <ul class="pagination">
-    <?php
-                    $query = "select * from cake";
-                    $result = mysqli_query($con, $query);
-                    $total_records = mysqli_num_rows($result);
-                    $total_pages = ceil($total_records / $per_page);
+            </div>
 
-                    echo " 
+            <center>
+                <ul class="pagination">
+            <?php
+                        $query = "select * from cake";
+                        $result = mysqli_query($con, $query);
+                        $total_records = mysqli_num_rows($result);
+                        $total_pages = ceil($total_records / $per_page);
+
+                        echo " 
                     <li>
                         <a href='Shop.php?page=1'> " . 'First Page' . " </a>
                     </li>
                     ";
 
-                    for ($i = 1; $i <= $total_pages; $i++) {
-                        echo "
+                        for ($i = 1; $i <= $total_pages; $i++) {
+                            echo "
                         <li>
                             <a href='Shop.php?page=" . $i . "'> " . $i . " </a>
                         </li>
                         ";
-                    };
+                        };
 
-                    echo "
+                        echo "
                         <li>
                             <a href='Shop.php?page=$total_pages'> " . 'Last Page' . " </a>
                         </li>
                         ";
+                    }
                 }
-            }
 
 
-    ?>
-        </ul>
-    </center>
-    </div>
-    
+            ?>
+                </ul>
+            </center>
+    </section>
 
     <div class="row">
         <?php

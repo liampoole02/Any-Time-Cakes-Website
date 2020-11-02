@@ -45,10 +45,9 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
         $delete_cart = "delete from cart where IP_add ='$ip_add'";
 
         $run_delete = mysqli_query($con, $delete_cart);
-
-        echo "<script>alert('Your order has been placed, Thank you')</script>";
-        echo "<script>window.open('MyAccountPage.php?OrdersPage,_self')</script>";
     }
+    echo "<script>alert('Your order has been placed, Thank you')</script>";
+    echo "<script>window.open('MyAccountPage.php?OrdersPage,_self')</script>";
 }
 
 
@@ -60,65 +59,63 @@ while ($row_cart = mysqli_fetch_array($run_cart)) {
     <p class="lead"> Your orders on one place</p>
 
 
-    <div class="table-resposive">
-        <table class="table table-bordered table-hover">
-            <thead>
+    <!-- <div class="table-resposive"> -->
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>No:</th>
+                <th>Amount Due</th>
+                <th>Invoice No:</th>
+                <th>Quantity:</th>
+                <th>Order Date:</th>
+                <th>Status:</th>
+                <th>Confirm:</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <?php
+            $customer_session = $_SESSION['ClientEmail'];
+            $get_customer = "select * from client where ClientEmail='$customer_session'";
+            $run_customer = mysqli_query($con, $get_customer);
+            $row_customer = mysqli_fetch_array($run_customer);
+            $customer_id = $row_customer['ClientID'];
+            $get_orders = "select * from clientorder where ClientID='$customer_id'";
+            $run_orders = mysqli_query($con, $get_orders);
+            $i = 0;
+
+            while ($row_orders = mysqli_fetch_array($run_orders)) {
+                $order_id = $row_orders['OrderID'];
+                $due_amount = $row_orders['DueAmount'];
+                $invoice_no = $row_orders['InvoiceNo'];
+                $qty = $row_orders['Quantity'];
+                $order_date = $row_orders['OrderDate'];
+                $order_status = $row_orders['OrderStatus'];
+                $i++;
+
+                if ($order_status == 'Pending') {
+                    $order_status = 'Unpaid';
+                } else {
+                    $order_status = 'Paid';
+                }
+
+            ?>
                 <tr>
-                    <th>No:</th>
-                    <th>Amount Due</th>
-                    <th>Invoice No:</th>
-                    <th>Quantity:</th>
-                    <th>Order Date:</th>
-                    <th>Status:</th>
-                    <th>Confirm:</th>
+                    <th> <?php echo $i; ?></th>
+
+                    <td>R<?php echo $due_amount; ?></td>
+                    <td><?php echo $invoice_no; ?></td>
+                    <td><?php echo $qty; ?></td>
+                    <td><?php echo $order_date; ?></td>
+                    <td><?php echo $order_status; ?></td>
+
+                    <td><a href="ConfirmPayment.php?order_id=<?php echo $order_id; ?>" target="_blank" class="btn btn-primary btn sm">Confirm Payment</a></td>
 
                 </tr>
-            </thead>
-            <tbody>
 
-                <?php
-                $customer_session = $_SESSION['ClientEmail'];
-                $get_customer = "select * from client where ClientEmail='$customer_session'";
-                $run_customer = mysqli_query($con, $get_customer);
-                $row_customer = mysqli_fetch_array($run_customer);
-                $customer_id = $row_customer['ClientID'];
-                $get_orders = "select * from clientorder where ClientID='$customer_id'";
-                $run_orders = mysqli_query($con, $get_orders);
-                $i = 0;
-
-                while ($row_orders = mysqli_fetch_array($run_orders)) {
-                    $order_id = $row_orders['OrderID'];
-                    $due_amount = $row_orders['DueAmount'];
-                    $invoice_no = $row_orders['InvoiceNo'];
-                    $qty = $row_orders['Quantity'];
-                    $order_date = $row_orders['OrderDate'];
-                    $order_status = $row_orders['OrderStatus'];
-                    $i++;
-
-                    if ($order_status == 'Pending') {
-                        $order_status = 'Unpaid';
-                    } else {
-                        $order_status = 'Paid';
-                    }
-
-                ?>
-                    <tr>
-                        <th> <?php echo $i; ?></th>
-
-                        <td>R<?php echo $due_amount; ?></td>
-                        <td><?php echo $invoice_no; ?></td>
-                        <td><?php echo $qty; ?></td>
-                        <td><?php echo $order_date; ?></td>
-                        <td><?php echo $order_status; ?></td>
-
-                        <td><a href="ConfirmPayment.php?order_id=<?php echo $order_id; ?>" target="_blank" class="btn btn-primary btn sm">Confirm Payment</a></td>
-
-                    </tr>
-
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+            <?php } ?>
+        </tbody>
+    </table>
 </center>
 
 </html>

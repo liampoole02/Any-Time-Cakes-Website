@@ -21,66 +21,66 @@ include("Header.php");
 
 <body>
 
-    <div class="col-md-9">
-        <div class="box">
+        <div class="col-md-9">
+            <div class="box">
 
-            <div class="box-header">
-                <center>
-                    <h1>Sign Up</h1>
-                    <p class="lead">Already have an account...?</p>
-                </center>
-            </div>
-
-            <form method="POST" action="SignUpPage.php" enctype="multipart/data" onsubmit="return validate()">
-
-                <div class="col-lg-8 m-auto d-block">
-
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Apple">
-                        <span id="sname" class="error"></span>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="surname">Surname</label>
-                        <input type="text" id="surname" name="surname" class="form-control" placeholder="Smith">
-                        <span id="ssurname" class="error"></span>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label for="Mobile No">Mobile No</label>
-                        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="0873756839">
-                        <span id="smobile" class="error"></span>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Email address">Email address</label>
-                        <input type="text" id="email" name="email" class="form-control" placeholder="apple@fruit.gum">
-                        <span id="semail" class="error"></span>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" class="form-control" placeholder="apple432">
-                        <span id="spassword" class="error"></span>
-
-                    </div>
-
+                <div class="box-header">
                     <center>
-                        <input type="submit" value="Sign-up" name="register" class="btn btn-primary"></input>
+                        <h1>Sign Up</h1>
+                        <p class="lead">Already have an account...?</p>
                     </center>
                 </div>
 
-            </form>
+                <form method="POST" action="SignUpPage.php" enctype="multipart/data" onsubmit="return validate()">
+
+                    <div class="col-lg-8 m-auto d-block">
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Apple">
+                            <span id="sname" class="error"></span>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="surname">Surname</label>
+                            <input type="text" id="surname" name="surname" class="form-control" placeholder="Smith">
+                            <span id="ssurname" class="error"></span>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="Mobile No">Mobile No</label>
+                            <input type="text" id="mobile" name="mobile" class="form-control" placeholder="0873756839">
+                            <span id="smobile" class="error"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email address">Email address</label>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="apple@fruit.gum">
+                            <span id="semail" class="error"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="apple432">
+                            <span id="spassword" class="error"></span>
+
+                        </div>
+
+                        <center>
+                            <input type="submit" value="Sign-up" name="register" class="btn btn-primary"></input>
+                        </center>
+                    </div>
+
+                </form>
+            </div>
         </div>
-    </div>
 
 </body>
 

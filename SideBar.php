@@ -14,38 +14,43 @@ $customer_name = $row_customer['ClientName'];
 if (!isset($_SESSION['ClientEmail'])) {
 } else {
     echo "
-        <h3 class='panel-title' align='center'>
-        Name : $customer_name<br>
-        Email: $customer_session
-        <h3/>
+        <ul>
+            <li>
+                 $customer_name
+            </li>
+
+            <li>
+                $customer_session
+            </li>
+        </ul>
+
     ";
 }
 ?>
 
 <!-- <section class="header"> -->
-<div class="side-menu" id="side-menu">
-    <ul>
-        <li class="<?php if (isset($_GET['OrdersPage'])) {
-                        echo "active";
-                    } ?>">
-            <a href="MyAccountPage.php?OrdersPage"><i class="fa fa-list"></i>My Orders
-            </a>
+<ul>
+    <li class="<?php if (isset($_GET['OrdersPage'])) {
+                    echo "active";
+                }
+                ?>">
+        <a href="MyAccountPage.php?OrdersPage"><i class="fa fa-list"></i> My Orders</a>
+    </li>
 
-        </li>
+    <li class="<?php if (isset($_GET['DeleteAccountPage'])) {
+                    echo "active";
+                } ?>">
+        <a href="MyAccountPage.php?DeleteAccountPage">
+            <i class="fa fa-trash-o"></i> Delete Account
+        </a>
+    </li>
 
-        <li class="<?php if (isset($_GET['DeleteAccountPage'])) {
-                        echo "active";
-                    } ?>">
-            <a href="MyAccountPage.php?DeleteAccountPage">
-                <i class="fa fa-trash-o"></i>Delete Account</a>
-        </li>
-
-        <li class="<?php if (isset($_GET['Logout'])) {
-                        echo "active";
-                    } ?>">
-            <a href="MyAccountPage.php?Logout">
-                <i class="fa fa-sign-out"></i>Log Out</a>
-        </li>
-    </ul>
-</div>
+    <li class="<?php if (isset($_GET['Logout'])) {
+                    echo "active";
+                } ?>">
+        <a href="MyAccountPage.php?Logout">
+            <i class="fa fa-sign-out"></i> Log Out
+        </a>
+    </li>
+</ul>
 <!-- </section> -->

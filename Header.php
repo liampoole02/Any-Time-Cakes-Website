@@ -44,7 +44,7 @@ if (isset($_GET['cake_id'])) {
 
     <div id="top">
         <div class="container">
-            <div class="col-md-6 offer">
+            <div class="col-md-8 offer">
                 <a href="HomePage.php"><img src="2020-08-14_01h56_38 (2).png" class="logo"></a>
                 <a href="#" class="btn btn-success btn-sm">
                     <?php
@@ -56,8 +56,8 @@ if (isset($_GET['cake_id'])) {
                     ?>
                 </a>
                 <a href="CheckoutPage.php"> <?php items(); ?> Item(s) in Your cart | Total Price:<?php total_price(); ?></a>
-
             </div>
+
             <div class="col-md-6 offer">
                 <ul class="menu">
                     <li class="<?php if ($active == 'Home') echo "active"; ?>'">

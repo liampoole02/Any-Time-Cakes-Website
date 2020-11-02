@@ -28,10 +28,10 @@ include_once("Header.php");
 
 <body>
     <section>
-        <div id="content">
-            <div class="container">
+        <!-- <div id="content"> -->
+            <div id="orders">
                 <div class="col-md-9">
-                    <!-- <div class="box"> -->
+                    <div class="box">
                         <?php
                         if (isset($_GET['OrdersPage'])) {
                             include("OrdersPage.php");
@@ -43,9 +43,9 @@ include_once("Header.php");
                             include("Logout.php");
                         }
                         ?>
-                    <!-- </div> -->
+                    </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

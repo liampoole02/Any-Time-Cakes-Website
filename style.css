@@ -382,7 +382,7 @@ body {
 }
 
 #top .offer {
-    color: blueviolet;
+    margin-right: 200px;
 }
 
 #top .offer .btn {
@@ -510,4 +510,8 @@ body {
 
 .form-group span {
     background-color: red;
+}
+
+#orders {
+    margin-left: 250px;
 }
