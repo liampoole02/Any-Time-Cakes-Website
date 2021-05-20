@@ -46,7 +46,7 @@ if (isset($_GET['cake_id'])) {
     <div id="top">
         <div class="container">
             <div class="col-md-8 offer">
-                <a href="Index.php"><img src="2020-08-14_01h56_38 (2).png" class="logo"></a>
+                <a href="index.php"><img src="2020-08-14_01h56_38 (2).png" class="logo"></a>
                 <a href="#" class="btn btn-success btn-sm">
                     <?php
                     if (!isset($_SESSION['ClientEmail'])) {

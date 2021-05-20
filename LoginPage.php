@@ -84,6 +84,7 @@ if (isset($_POST['login'])) {
         echo "<script>alert('Incorrect email or password')</script>";
         exit();
     }
+    
     if ($check_customer == 1 and $check_cart == 0) {
         $_SESSION['ClientEmail'] = $c_email;
         echo "<script>alert('You are now logged in')</script>";
