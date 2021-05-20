@@ -1,5 +1,6 @@
 <?php
-$db = mysqli_connect("localhost", "root", "", "mydb");
+// $db = mysqli_connect("localhost", "root", "", "mydb");
+$db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 function getRealIPUser()
 {
