@@ -35,7 +35,7 @@ body {
     width: 60%;
 }
 
-.input-group-text {
+.top-nav .search-bar .input-group-text {
     background: pink;
     border: 1xp solid blue;
     margin: 8.5px 10px 3px 0;
@@ -48,6 +48,7 @@ body {
 
 .search-bar {
     display: inline-flex;
+    margin-left: 10%;
     width: 80%;
 }
 
@@ -138,9 +139,9 @@ body {
 }
 
 .side-menu {
-    height: 67%;
+    height: 90%;
     width: 15%;
-    font-size: 14px;
+    font-size: 16px;
     float: left;
     z-index: 2;
     background-color: brown;
@@ -251,10 +252,16 @@ body {
 .homePage .row {
     width: 85%;
     margin-left: 15%;
+    margin-bottom: 50px;
 }
 
-.homePage .h3 {
-    margin-left: 15%;
+.homePage .single {
+    margin-bottom: 25px;
+}
+
+#popular #popularPicks h3 {
+    margin-top: 4%;
+    margin-left: 16%;
 }
 
 .featured-categories img {
@@ -435,8 +442,10 @@ body {
 }
 
 .product {
-    background: honeydew;
-    box-shadow: black;
+    background: rgb(216, 217, 238);
+    border-radius: 3%;
+    padding: 9px;
+    border: #000;
     padding: 10px;
     height: 400px;
     box-shadow: blue;

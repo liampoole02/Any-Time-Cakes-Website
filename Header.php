@@ -40,12 +40,13 @@ if (isset($_GET['cake_id'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="2020-08-14_01h56_38 (2).png" type="image/png" sizes="484x297"/>
     </head>
 
     <div id="top">
         <div class="container">
             <div class="col-md-8 offer">
-                <a href="HomePage.php"><img src="2020-08-14_01h56_38 (2).png" class="logo"></a>
+                <a href="Index.php"><img src="2020-08-14_01h56_38 (2).png" class="logo"></a>
                 <a href="#" class="btn btn-success btn-sm">
                     <?php
                     if (!isset($_SESSION['ClientEmail'])) {

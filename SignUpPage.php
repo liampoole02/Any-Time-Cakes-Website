@@ -111,7 +111,7 @@ if (isset($_POST['register'])) {
     } else {
         $_SESSION['ClientEmail'] = $c_email;
         echo "<script>alert('You have been registered successfully')</script>";
-        echo "<script>window.open('HomePage.php','_self')</script>";
+        echo "<script>window.open('index.php','_self')</script>";
     }
 }
 

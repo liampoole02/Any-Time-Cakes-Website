@@ -3,6 +3,6 @@ session_start();
 
 session_destroy();
 
-echo "<script>window.open('HomePage.php','_self')</script>";
+echo "<script>window.open('Index.php','_self')</script>";
 
 ?>

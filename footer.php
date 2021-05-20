@@ -4,100 +4,94 @@ include_once("includes/db.php");
 include_once("Functions.php");
 
 ?>
-<div id="footer"><!-- #footer Begin -->
-    <div class="container"><!-- container Begin -->
-        <div class="row"><!-- row Begin -->
-            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 Begin -->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
                
                <h4>Pages</h4>
                 
-                <ul><!-- ul Begin -->
+                <ul>
                     <li><a href="Cart.php">Shopping Cart</a></li>
                     <li><a href="contact.php">Contact Us</a></li>
                     <li><a href="Shop.php">Shop</a></li>
                     <li><a href="CheckoutPage.php">My Account</a></li>
-                </ul><!-- ul Finish -->
+                </ul>
                 
                 <hr>
                 
                 <h4>User Section</h4>
                 
-                <ul><!-- ul Begin -->
+                <ul>
                     <li><a href="LoginPage.php">Login</a></li>
                     <li><a href="SignUpPage.php">Register</a></li>
-                </ul><!-- ul Finish -->
+                </ul>
                 
                 <hr class="hidden-md hidden-lg hidden-sm">
                 
-            </div><!-- col-sm-6 col-md-3 Finish -->
+            </div>
             
-            <div class="com-sm-6 col-md-3"><!-- col-sm-6 col-md-3 Begin -->
+            <div class="com-sm-6 col-md-3">
                 
                 <h4>Top Products Categories</h4>
                 
-                <ul><!-- ul Begin -->
+                <ul>
                <?php getCats() ?>
-                </ul><!-- ul Finish -->
+                </ul>
                 
                 <hr class="hidden-md hidden-lg">
                 
-            </div><!-- col-sm-6 col-md-3 Finish -->
+            </div>
             
-            <div class="col-sm-6 col-md-3"><!-- col-sm-6 col-md-3 Begin -->
+            <div class="col-sm-6 col-md-3">
                 
                 <h4>Find Us</h4>
                 
-                <p><!-- p Start -->
+                <p>
                     
                     <strong>AnyTime Cake Online.</strong>
                     <br/>Eunice
                     <br/>Poole
                     <br/>pooleeunice@gmail.com
-                    <br/>+27 0834879332
+                    <br/>+27 834879332
 
-                </p><!-- p Finish -->
+                </p>
                 
                 <a href="contact.php">Check Our Contact Page</a>
                 
                 <hr class="hidden-md hidden-lg">
                 
-            </div><!-- col-sm-6 col-md-3 Finish -->
+            </div>
             
             <div class="col-sm-6 col-md-3">
                                 
-                <!-- <p class="text-muted">
-                    Dont miss our latest update products.
-                </p>
-                 -->
-                <form action="" method="post"><!-- form begin -->
-                    <div class="input-group"><!-- input-group begin -->
+                <form action="" method="post">
+                    <div class="input-group">
                         
-                        <!-- <input type="text" class="form-control" name="email"> -->
                         
-                        <span class="input-group-btn"><!-- input-group-btn begin -->
+                        <span class="input-group-btn">
                             
-                            <!-- <input type="submit" value="subscribe" class="btn btn-default"> -->
                             
-                        </span><!-- input-group-btn Finish -->
+                        </span>
                         
-                    </div><!-- input-group Finish -->
-                </form><!-- form Finish -->
+                    </div>
+                </form>
                 
                 <hr>
                 
             </div>
-        </div><!-- row Finish -->
-    </div><!-- container Finish -->
-</div><!-- #footer Finish -->
+        </div>
+    </div>
+</div>
 
 
-<div id="copyright"><!-- #copyright Begin -->
-    <div class="container"><!-- container Begin -->
-        <div class="col-md-6"><!-- col-md-6 Begin -->
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-6">
             
             <p class="pull-left">&copy; 2020 AnyTime cakes All Rights Reserve</p>
             
-        </div><!-- col-md-6 Finish -->
+        </div>
 
-    </div><!-- container Finish -->
-</div><!-- #copyright Finish -->
+    </div>
+</div>

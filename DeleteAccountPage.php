@@ -16,7 +16,7 @@ if (isset($_POST['Yes'])) {
     if ($run_delete_customer) {
         session_destroy();
         echo "<script>alert('Your account has been deleted.')</script>";
-        echo "<script>window.open('HomePage.php')</script>";
+        echo "<script>window.open('Index.php')</script>";
     }
 }
 if (isset($_POST['No'])) {

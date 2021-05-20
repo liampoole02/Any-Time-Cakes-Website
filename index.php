@@ -1,5 +1,5 @@
 <?php
-$active='Home';
+$active = 'Home';
 
 include("includes/db.php");
 include_once("Functions.php");
@@ -8,10 +8,13 @@ include_once("Header.php");
 ?>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AnyTime Cakes</title>
+    <link rel="icon" href="2020-08-14_01h56_38 (2).png" type="image/png" sizes="484x297"/>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 
@@ -25,14 +28,14 @@ include_once("Header.php");
 <body>
 
     <!-- <section class="header"> -->
-        <div class="side-menu" id="side-menu">
-            <h3 class="panel-title"> Cake Categories</h3>
-            <ul>
-                <?php
-                getCats();
-                ?>
-            </ul>
-        </div>
+    <div class="side-menu" id="side-menu">
+        <h3 class="panel-title"> Cake Categories</h3>
+        <ul>
+            <?php
+            getCats();
+            ?>
+        </ul>
+    </div>
     <!-- </section> -->
 
     <div class="slider">
@@ -56,7 +59,7 @@ include_once("Header.php");
         </div>
     </div>
 
-    <section>
+    <!-- <section>
         <div class="featured-categories">
             <div class="container">
                 <div class="row">
@@ -71,21 +74,28 @@ include_once("Header.php");
                     </div>
                 </div>
             </div>
-    </section>
+    </section> -->
 
     <div id="content" class="homePage">
-        <h3>Popular picks</h3>
-        <div class="row">
-            <?php
-            getPro();
-            ?>
+
+        <div id="popular">
+            <div id="popularPicks">
+                <h3>Popular picks</h3>
+            </div>
+
+            <div class="row">
+                <?php
+                getPro();
+                ?>
+            </div>
         </div>
     </div>
 
 </body>
-<?php 
-    
-    include_once("footer.php");
-    
-    ?>
+<?php
+
+include_once("footer.php");
+
+?>
+
 </html>

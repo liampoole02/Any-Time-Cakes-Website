@@ -100,7 +100,7 @@ include("Header.php");
                 </div>
                 <div class="box-footer">
                     <div class="pull-left">
-                        <a href="HomePage.php" class="btn btn-default">
+                        <a href="index.php" class="btn btn-default">
                             <i class="fa fa-chevron-left"></i> Continue Shopping
                         </a>
                     </div>

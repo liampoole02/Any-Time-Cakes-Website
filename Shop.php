@@ -33,7 +33,7 @@ include("Header.php");
 
     <section>
 
-        <div id="content" class="container">
+        <div id="content" class="homePage">
             <div class="row">
                 <?php
                 if (!isset($_GET['p_cat'])) {
@@ -57,7 +57,7 @@ include("Header.php");
                             $cake_img1 = $row_products['CakeImage1'];
 
                             echo "
-                        <div class='col-md-4 col-sm-6 center-responsive'>
+                        <div class='col-md-4 col-sm-6 single'>
                             <div class='product'>
                                  <a href='ProductPage.php?cake_id=$cake_id'>
                                     <img class='img-fluid' src='Admin/images/$cake_img1'></img>

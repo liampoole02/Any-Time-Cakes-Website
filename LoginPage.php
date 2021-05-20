@@ -46,6 +46,7 @@ include_once("Header.php");
                         <span id="spassword" class="error"></span>
 
                     </div>
+                    
                     <center>
                         <input type="submit" value="Login" name="login" class="btn btn-primary"><i class="fa fa-sign-in"></i></input>
                     </center>
