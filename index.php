@@ -29,7 +29,7 @@ include_once("Header.php");
 
     <!-- <section class="header"> -->
     <div class="side-menu" id="side-menu">
-        <h3 class="panel-title"> Cake Categories</h3>
+        <h3 class="panel-title">Cake Categories</h3>
         <ul>
             <?php
             getCats();
