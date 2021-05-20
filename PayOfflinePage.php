@@ -1,7 +1,7 @@
 <center>
 <h1>
     <p class="lead">
-        Pay Offline
+        Pay
     </p>
 </h1>
 </center>
